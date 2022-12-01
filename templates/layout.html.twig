@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <header>
+        {% block header %}
+            {% include 'header.html.twig' %}
+        {% endblock %}
+    </header>
+    <div class="parent">
+        <div class="main-content">
+            {% block leftContent %}{% endblock %}
+        </div>
+        <div class="main-content">
+            {% block rightContent %}{% endblock %}
+        </div>
+    </div>
+    <footer>
+        <pre data-response-log></pre>
+    </footer>
+{% endblock %}

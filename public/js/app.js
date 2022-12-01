@@ -25,8 +25,8 @@ function appConfigured(DPTURL) {
             let formData = new FormData(form);
             let method = form.method ?? 'get';
             let action = new URL(form.action);
-            let attemptAuthentication = new URL(`${DPTURL.href}`);
-            attemptAuthentication.pathname = action.pathname;
+            let executeFormActionUrl = new URL(`${DPTURL.href}`);
+            executeFormActionUrl.pathname = action.pathname;
             let options = {
                 method: method.toUpperCase()
             };
@@ -39,10 +39,9 @@ function appConfigured(DPTURL) {
             if(method.toLowerCase() === 'post') {
                 options.body = formData;
             }
-            console.log(options)
             responseContainer.innerHTML = '\n\r\n\r\t\t#########################################\t\t#########################################\t\t#########################################\t\t\n\r' + responseContainer.innerHTML;
-            responseContainer.innerHTML = '\n\r' + JSON.stringify({ url: attemptAuthentication}, null, 2) + responseContainer.innerHTML;
-            fetch(attemptAuthentication, options).then((r) => {
+            responseContainer.innerHTML = '\n\r' + JSON.stringify({ url: executeFormActionUrl}, null, 2) + responseContainer.innerHTML;
+            fetch(executeFormActionUrl, options).then((r) => {
                 parentNode.querySelector('[data-dpt-cab-id]').value = r.headers.get('X-Dpt-Cab-Id');
                 let id = r.headers.get('X-Dpt-Cab-Id');
                 checkRequestStatus(DPTURL, id, parentNode);
@@ -59,10 +58,10 @@ function checkRequestStatus(DPTURL, id, parentNode) {
     if(null === id) return;
     let responseContainer = document.querySelector('[data-response-log]');
 
-    let attemptAuthentication = new URL(`${DPTURL.href}`);
-    attemptAuthentication.pathname = `/request-status/${id}`;
-    responseContainer.innerHTML = JSON.stringify({ id: id, url: attemptAuthentication, parentNode: parentNode}, null, 2) + responseContainer.innerHTML;
-    fetch(attemptAuthentication).then(r => {
+    let checkRequestStatusUrl = new URL(`${DPTURL.href}`);
+    checkRequestStatusUrl.pathname = `/request-status/${id}`;
+    responseContainer.innerHTML = JSON.stringify({ id: id, url: checkRequestStatusUrl, parentNode: parentNode}, null, 2) + responseContainer.innerHTML;
+    fetch(checkRequestStatusUrl).then(r => {
         switch (r.status.toString()) {
             case '200':
                 responseContainer.innerHTML = '\n\rSuccess' + responseContainer.innerHTML;

@@ -1,0 +1,64 @@
+<div style="border: 1px solid #cccccc; box-sizing: border-box; margin:2px;">
+    <h3>Profile feature</h3>
+    <div data-action="register">
+        <div>
+            <button data-call-to-action>Register user</button>
+            <form action="/profile/register-profile" method="post">
+                <label >Username</label>
+                <input name="username" value=""/>
+                <label >Password</label>
+                <input type="password" name="password" value=""/>
+            </form>
+            <input type="text" readonly data-dpt-cab-id/>
+        </div>
+    </div>
+
+    <div data-action="obtainToken">
+        <div>
+            <button data-call-to-action>Attempt auth</button>
+            <form action="profile/atempt-authentication" method="post">
+                <label >Username</label>
+                <input name="username" value=""/>
+                <label >Password</label>
+                <input type="password" name="password" value=""/>
+            </form>
+            <input type="text" readonly data-dpt-cab-id/>
+        </div>
+    </div>
+
+    <div data-action="retrieveTempToken">
+        <div>
+            <button data-call-to-action>Retrieve temp token</button>
+            <form action="/profile/retrieve-temp-token" method="post">
+                <label >Obtain Token id</label>
+                <input name="id" value=""/>
+            </form>
+            <input type="text" readonly data-dpt-cab-id/>
+        </div>
+    </div>
+
+    <div data-action="requestAuthToken">
+        <div>
+            <button data-call-to-action>Request auth token</button>
+            <form action="/profile/request-authorization-token" method="post">
+                <label >Temp token</label>
+                <input name="tempToken" value=""/>
+                <label >Scope</label>
+                <input name="scope" value="all"/>
+            </form>
+            <input type="text" readonly data-dpt-cab-id/>
+        </div>
+    </div>
+
+    <div data-action="retrieveAuthToken">
+        <div>
+            <p>We should consider removing temp token because we have it in authorization header. Using command id might be better.</p>
+            <button data-call-to-action>Retrieve auth token</button>
+            <form action="/profile/retrieve-authorisation-token" method="post">
+                <label >Temp token</label>
+                <input name="tempToken" value=""/>
+            </form>
+            <input type="text" readonly data-dpt-cab-id/>
+        </div>
+    </div>
+</div>

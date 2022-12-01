@@ -6,4 +6,9 @@ window.addEventListener('DOMContentLoaded', () => {
         let resp = e.detail;
         document.querySelector('[data-action="retrieveTempToken"]').querySelector('[data-dpt-cab-id]').value = resp.token;
     })
+
+    document.querySelector('[data-action="retrieveAuthToken"]').addEventListener('request.response.body', (e) => {
+        let resp = e.detail;
+        document.querySelector('[data-action="retrieveAuthToken"]').querySelector('[data-dpt-cab-id]').value = resp.token;
+    })
 });

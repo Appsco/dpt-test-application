@@ -1,4 +1,5 @@
 body {}
+
 header {
     height: 40px;
     border-bottom: 1px solid #c2b7b7;
@@ -10,9 +11,30 @@ header {
     justify-content: space-between;
 }
 
+button{
+    vertical-align: top;
+    width: 150px;
+}
+
+form{
+    padding-left: 50px;
+}
+
+h3{
+    margin: 10px;
+}
+
+h2{
+    margin-left: 10px;
+}
+
+input {
+    padding: 2px;
+}
+
 header > div {
     align-self: flex-end;
-    padding:5px;
+    padding: 5px;
 }
 
 div.parent {
@@ -33,9 +55,11 @@ div.main-content {
 }
 
 input[data-dpt-cab-id] {
-    width: 255px;
+    width: 350px;
     background-color: #e0e0e0;
+    float: right;
 }
+
 input[data-request-status] {
     border: transparent;
     background-color: #e0e0e0;
@@ -66,6 +90,21 @@ footer > pre {
     word-wrap: break-word; /* IE 5.5+ */
 }
 
-[data-call-to-action] {
-    width: 120px;
+form [data-call-to-action] {
+    width: 170px;
+}
+
+[data-action]{
+    border-bottom: 1px solid #e0dede;
+    padding: 10px;
+}
+
+[name="authorization"] {
+    width: 550px;
+}
+
+form input[type=text], form input[type=password] {
+    display: block;
+    margin: 5px 0;
+    width: 80%;
 }

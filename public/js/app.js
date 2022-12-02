@@ -3,6 +3,8 @@ window.addEventListener('DOMContentLoaded', () => {
         DPTURL = new URL(url);
         appConfigured(DPTURL);
     })
+
+    rememberAuthToken();
 });
 
 function fetchDPTUrl(callback) {
@@ -85,4 +87,19 @@ function checkRequestStatus(DPTURL, id, parentNode) {
 function displayResponse(parentNode, resp) {
     let responseContainer = document.querySelector('[data-response-log]');
     responseContainer.innerHTML = JSON.stringify(resp, null, 2) + responseContainer.innerHTML;
+}
+
+function rememberAuthToken() {
+    let authTokenInputElement = document.querySelector('[name="authorization"]');
+
+    if (authTokenInputElement) {
+        authTokenInputElement.addEventListener('change', (event) => {
+            localStorage.setItem("authToken", event.target.value);
+        });
+    }
+
+    let authToken = localStorage.getItem("authToken");
+    if (authToken) {
+        authTokenInputElement.value = localStorage.getItem("authToken");
+    }
 }

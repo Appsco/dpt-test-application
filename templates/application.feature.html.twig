@@ -1,0 +1,25 @@
+<div style="border: 1px solid #cccccc; box-sizing: border-box; margin:2px;">
+    <h3>OAuth Application Feature</h3>
+    <div data-action="register application">
+        <div>
+            <button data-call-to-action>Register OAuth Application</button>
+            <form action="/profile/oauth-application-register" method="post">
+                <label>Title</label>
+                <input type="text" name="title" value=""/>
+                <label>Redirect Uri (optional)</label>
+                <input type="text" name="redirect_uri" value=""/>
+            </form>
+            <input type="text" readonly data-dpt-cab-id/>
+        </div>
+    </div>
+    <div data-action="retrieve application configuration">
+        <div>
+            <button data-call-to-action>Retrieve Credentials</button>
+            <form action="/profile/retrieve-oauth-application-configuration" method="post">
+                <label>Registration Request Id</label>
+                <input type="text" name="id" value=""/>
+            </form>
+            <input type="text" readonly data-dpt-cab-id/>
+        </div>
+    </div>
+</div>

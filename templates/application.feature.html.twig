@@ -1,9 +1,9 @@
 <div style="border: 1px solid #cccccc; box-sizing: border-box; margin:2px;">
     <h3>OAuth Application Feature</h3>
-    <div data-action="register application">
+    <div data-action="registerOAuthApplication">
         <div>
             <button data-call-to-action>Register OAuth Application</button>
-            <form action="/profile/oauth-application-register" method="post">
+            <form action="/profile/oauth-application-register" method="post" data-auth-header="xauth">
                 <label>Title</label>
                 <input type="text" name="title" value=""/>
                 <label>Redirect Uri (optional)</label>
@@ -12,12 +12,60 @@
             <input type="text" readonly data-dpt-cab-id/>
         </div>
     </div>
-    <div data-action="retrieve application configuration">
+    <div data-action="retrieveOAuthCredentials">
         <div>
             <button data-call-to-action>Retrieve Credentials</button>
-            <form action="/profile/retrieve-oauth-application-configuration" method="post">
+            <form action="/profile/retrieve-oauth-application-configuration" method="post" data-auth-header="xauth">
                 <label>Registration Request Id</label>
                 <input type="text" name="id" value=""/>
+            </form>
+            <input type="text" readonly data-dpt-cab-id/>
+        </div>
+    </div>
+    <div data-action="packBasicAuth">
+        <div class="pack">
+            <button class="pack-button">Pack Basic Auth</button>
+            <div>
+                <label>Client Id</label>
+                <input type="text" name="client_id" value=""/>
+                <label>Client Secret</label>
+                <input type="text" name="client_secret" value=""/>
+            </div>
+            <input class="result" type="text" name="basic_auth" value=""/>
+        </div>
+    </div>
+    <div data-action="requestAuthorizationCode">
+        <div>
+            <button data-call-to-action>Request Authorization Code</button>
+            <form action="/profile/oauth-application-request-authorization-code" method="post" data-auth-header="xauth">
+                <label>Client Id</label>
+                <input type="text" name="client_id" value=""/>
+                <label>Nonce</label>
+                <input type="text" name="nonce" value="xyz"/>
+                <label>Scope</label>
+                <input type="text" name="scope" value="all"/>
+            </form>
+            <input type="text" readonly data-dpt-cab-id/>
+        </div>
+    </div>
+    <div data-action="retrieveAuthorizationCode">
+        <div>
+            <button data-call-to-action>Retrieve Authorization Code</button>
+            <form action="/oauth-application/retrieve-authorization-code" method="post" data-auth-header="basic">
+                <label>Request Authorization Code Id</label>
+                <input type="text" name="id" value=""/>
+                <label>Nonce</label>
+                <input type="text" name="nonce" value="xyz"/>
+            </form>
+            <input type="text" readonly data-dpt-cab-id/>
+        </div>
+    </div>
+    <div data-action="obtainAccessToken">
+        <div>
+            <button data-call-to-action>Obtain Access Token</button>
+            <form action="/oauth-application/obtain-access-token" method="post" data-auth-header="basic">
+                <label>Authorization Code</label>
+                <input type="text" name="authorization_code" value=""/>
             </form>
             <input type="text" readonly data-dpt-cab-id/>
         </div>

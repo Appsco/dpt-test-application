@@ -40,7 +40,7 @@
     <div data-action="requestAuthToken">
         <div>
             <button data-call-to-action>Request auth token</button>
-            <form action="/profile/request-authorization-token" method="post">
+            <form action="/profile/request-authorization-token" method="post" data-auth-header="xauth">
                 <label>Scope</label>
                 <input type="text" name="scope" value="all"/>
             </form>
@@ -51,7 +51,7 @@
     <div data-action="retrieveAuthToken">
         <div>
             <button data-call-to-action>Retrieve auth token</button>
-            <form action="/profile/retrieve-authorisation-token" method="post">
+            <form action="/profile/retrieve-authorization-token" method="post" data-auth-header="xauth">
                 <label>Auth Token Request Id</label>
                 <input type="text" name="request_auth_token_command_id" value=""/>
             </form>

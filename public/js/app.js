@@ -3,8 +3,6 @@ window.addEventListener('DOMContentLoaded', () => {
         DPTURL = new URL(url);
         appConfigured(DPTURL);
     })
-
-    rememberAuthToken();
 });
 
 function fetchDPTUrl(callback) {
@@ -32,12 +30,8 @@ function appConfigured(DPTURL) {
             let options = {
                 method: method.toUpperCase()
             };
-            let authHeader = document.querySelector('header [name="authorization"]');
-            if(authHeader.value !== '') {
-                options.headers = {
-                    'X-DPT-AUTHORIZATION': authHeader.value
-                }
-            }
+            let authHeader = form.dataset.authHeader;
+            options.headers = setOptionsHeader(authHeader);
             if(method.toLowerCase() === 'post') {
                 options.body = formData;
             }
@@ -89,17 +83,14 @@ function displayResponse(parentNode, resp) {
     responseContainer.innerHTML = JSON.stringify(resp, null, 2) + responseContainer.innerHTML;
 }
 
-function rememberAuthToken() {
-    let authTokenInputElement = document.querySelector('[name="authorization"]');
-
-    if (authTokenInputElement) {
-        authTokenInputElement.addEventListener('change', (event) => {
-            localStorage.setItem("authToken", event.target.value);
-        });
+function setOptionsHeader(authHeader) {
+    let optionsHeader= {};
+    if (authHeader === 'basic') {
+        optionsHeader['Authorization'] = 'Basic ' + document.querySelector('header [name="basic"]').value
+    }
+    if (authHeader === 'xauth') {
+        optionsHeader['X-DPT-AUTHORIZATION'] = document.querySelector('header [name="xauth"]').value
     }
 
-    let authToken = localStorage.getItem("authToken");
-    if (authToken) {
-        authTokenInputElement.value = localStorage.getItem("authToken");
-    }
+    return optionsHeader;
 }

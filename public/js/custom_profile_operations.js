@@ -11,4 +11,19 @@ window.addEventListener('DOMContentLoaded', () => {
         let resp = e.detail;
         document.querySelector('[data-action="retrieveAuthToken"]').querySelector('[data-dpt-cab-id]').value = resp.token;
     })
+
+    rememberXAuthToken();
 });
+
+function rememberXAuthToken() {
+    let authTokenInputElement = document.querySelector('[name="xauth"]');
+    if (authTokenInputElement) {
+        authTokenInputElement.addEventListener('change', (event) => {
+            localStorage.setItem("xauth", event.target.value);
+        });
+    }
+    let authToken = localStorage.getItem("xauth");
+    if (authToken) {
+        authTokenInputElement.value = localStorage.getItem("xauth");
+    }
+}

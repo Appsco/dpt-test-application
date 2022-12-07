@@ -2,11 +2,74 @@ body {
     margin: 0;
     padding: 0;
 }
-h1,h2,h3,h4,h5,h6 {
+
+h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
 }
 
-form {
+div.parent {
+    height: calc(100vh - 40px - 200px);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0;
+    grid-row-gap: 0;
+}
+
+div.main-content:first-child {
+    border-right: 1px solid #c2b7b7;
+}
+
+div.main-content {
+    overflow: auto;
+}
+
+input[data-dpt-cab-id], .result {
+    width: 350px;
+    background-color: #e0e0e0;
+    float: right;
+}
+
+input[data-request-status] {
+    border: transparent;
+    background-color: #e0e0e0;
+}
+
+[data-action] > div {
+    padding: 5px;
+}
+
+div[data-action] {
+    padding: 5px 0;
+}
+
+form [data-call-to-action] {
+    width: 170px;
+}
+
+[data-action] {
+    border-bottom: 1px solid #e0dede;
+    padding: 10px;
+}
+
+form input[type=text], form input[type=password] {
+    display: block;
+    margin: 5px 0;
+    width: 80%;
+}
+
+[data-dpt-cab-id], .result {
+    border: 1px solid rgb(133, 133, 133);
+    float: right;
+}
+
+.pack > div {
+    margin-left: 50px;
     display: inline-block;
+}
+
+.pack input[type=text], .pack input[type=password] {
+    display: block;
+    margin: 5px 0;
 }

@@ -24,9 +24,14 @@ function appConfigured(DPTURL) {
             let form = parentNode.querySelector('form');
             let formData = new FormData(form);
             let method = form.method ?? 'get';
+            let appendParamToUrl = form.hasAttribute('data-append-param');
+            let urlParam = '';
+            if (appendParamToUrl) {
+                urlParam = formData.entries().next().value[1];
+            }
             let action = new URL(form.action);
             let executeFormActionUrl = new URL(`${DPTURL.href}`);
-            executeFormActionUrl.pathname = action.pathname;
+            executeFormActionUrl.pathname = action.pathname + urlParam;
             let options = {
                 method: method.toUpperCase()
             };

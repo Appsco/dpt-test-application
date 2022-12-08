@@ -1,0 +1,23 @@
+<div style="border: 1px solid #cccccc; box-sizing: border-box; margin:2px;">
+    <h3>Data Token Feature</h3>
+    <div data-action="reserveTokenSpace">
+        <div>
+            <button data-call-to-action>Reserve Token Space</button>
+            <form action="/data-token/reserve-token-space" method="post" data-auth-header="xauth">
+                <label>Context</label>
+                <input type="text" name="context" value=""/>
+            </form>
+            <input type="text" readonly data-dpt-cab-id/>
+        </div>
+    </div>
+    <div data-action="retrieveTemporaryDataToken">
+        <div>
+            <button data-call-to-action>Retrieve Temporary Data Token</button>
+            <form action="/data-token/retrieve-temporary-data-token/" method="get" data-auth-header="xauth" data-append-param>
+                <label>Temporary Token</label>
+                <input type="text" name="token" value=""/>
+            </form>
+            <input type="text" readonly data-dpt-cab-id/>
+        </div>
+    </div>
+</div>

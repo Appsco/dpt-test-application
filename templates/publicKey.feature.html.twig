@@ -1,0 +1,21 @@
+<div style="border: 1px solid #cccccc; box-sizing: border-box; margin:2px;">
+    <h3>Public Key Feature</h3>
+    <div data-action="RegisterPublicKey">
+        <div>
+            <button data-call-to-action>Register public key</button>
+            <form action="/data-token/register-public-key" method="post" data-auth-header="xauth">
+                <label>Public Key</label>
+                <input type="text" name="public_key" value=""/>
+            </form>
+            <input type="text" readonly data-dpt-cab-id/>
+        </div>
+    </div>
+
+    <div data-action="requestPublicKey">
+        <div>
+            <button data-call-to-action>Retrieve public key</button>
+            <form action="/data-token/retrieve-public-key" method="get" data-auth-header="xauth"></form>
+            <input type="text" readonly data-dpt-cab-id/>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div style="border: 1px solid #cccccc; box-sizing: border-box; margin:2px;">
+    <h3>Device Feature</h3>
+    <div data-action="retrieveUniqueIdentifier">
+        <div>
+            <button data-call-to-action>Retrieve Unique Identifier</button>
+            <form action="/device/request-unique-identifier" method="post" data-auth-header="xauth"></form>
+            <input type="text" readonly data-dpt-cab-id/>
+        </div>
+    </div>
+
+    <div data-action="requestUniqueIdentifier">
+        <div>
+            <button data-call-to-action>Request Unique Identifier</button>
+            <form action="/device/retrieve-unique-identifier" method="post" data-auth-header="xauth">
+                <label>Unique Identifier Request Id</label>
+                <input type="text" name="id" value=""/>
+            </form>
+            <input type="text" readonly data-dpt-cab-id/>
+            <p class="gray">The delay of 2 minutes is set, for the test purpose</p>
+        </div>
+    </div>
+    <div data-action="retrieveProfileDevices">
+        <div>
+            <button data-call-to-action>Retrieve Profile Devices</button>
+            <form action="/device/retrieve-profile-devices" method="post" data-auth-header="xauth"></form>
+            <div data-dpt-cab-id></div>
+        </div>
+    </div>
+</div>

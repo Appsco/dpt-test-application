@@ -8,6 +8,10 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
 }
 
+p{
+    margin: 0.5em 0;
+}
+
 div.parent {
     height: calc(100vh - 40px - 200px);
     display: grid;
@@ -18,7 +22,7 @@ div.parent {
 }
 
 div.main-content:first-child {
-    border-right: 1px solid #c2b7b7;
+    border-right: 1px solid #e0e0e0;
 }
 
 div.main-content {
@@ -72,4 +76,16 @@ form input[type=text], form input[type=password] {
 .pack input[type=text], .pack input[type=password] {
     display: block;
     margin: 5px 0;
+}
+
+.gray{
+    color: #a2a1a1;
+}
+
+tr:nth-child(even) {
+    background-color: #e0e0e0;
+}
+
+td, th{
+    padding: 8px;
 }

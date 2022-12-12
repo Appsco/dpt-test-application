@@ -121,3 +121,18 @@ function generateTable(table, data) {
         }
     }
 }
+
+function displayTableData(response){
+    if(response.length === 0){
+        return;
+    }
+    let container = document.querySelectorAll('.main-content')[1];
+    container.querySelectorAll('*').forEach( n => n.remove() );
+
+    let table = document.createElement('table');
+    container.appendChild(table);
+    let data = Object.keys(response[0]);
+
+    generateTableHead(table, data);
+    generateTable(table, response);
+}

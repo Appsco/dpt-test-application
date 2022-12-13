@@ -10,16 +10,12 @@ window.addEventListener('DOMContentLoaded', () => {
     document.querySelector('[data-action="retrieveAuthToken"]').addEventListener('request.response.body', (e) => {
         let resp = e.detail;
         document.querySelector('[data-action="retrieveAuthToken"]').querySelector('[data-dpt-cab-id]').value = resp.token;
-
-        let response = [];
-        response.push(resp);
-        displayTableData(response);
+        displayTableData(resp);
     })
 
     document.querySelector('[data-action="retrieveTempToken"]').addEventListener('request.response.body', (e) => {
-        let response = [];
-        response.push(e.detail);
-        displayTableData(response);
+        let resp = e.detail;
+        displayTableData(resp);
     })
 
     rememberXAuthToken();

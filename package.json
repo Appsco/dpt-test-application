@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "libsodium": "^0.7.10"
+  }
+}

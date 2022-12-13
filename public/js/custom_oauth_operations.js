@@ -2,25 +2,18 @@ window.addEventListener('DOMContentLoaded', () => {
     document.querySelector('[data-action="retrieveAuthorizationCode"]').addEventListener('request.response.body', (e) => {
         let resp = e.detail;
         document.querySelector('[data-action="retrieveAuthorizationCode"]').querySelector('[data-dpt-cab-id]').value = resp.authorization_code;
-
-        let response = [];
-        response.push(resp);
-        displayTableData(response);
+        displayTableData(resp);
     })
 
     document.querySelector('[data-action="obtainAccessToken"]').addEventListener('request.response.body', (e) => {
         let resp = e.detail;
         document.querySelector('[data-action="obtainAccessToken"]').querySelector('[data-dpt-cab-id]').value = resp.token;
-        let response = [];
-        response.push(resp);
-        displayTableData(response);
+        displayTableData(resp);
     })
 
     document.querySelector('[data-action="retrieveOAuthCredentials"]').addEventListener('request.response.body', (e) => {
         let resp = e.detail;
-        let response = [];
-        response.push(resp);
-        displayTableData(response);
+        displayTableData(resp);
     })
 
     rememberAuthToken();

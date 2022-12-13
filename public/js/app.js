@@ -122,10 +122,17 @@ function generateTable(table, data) {
     }
 }
 
-function displayTableData(response){
-    if(response.length === 0){
+function displayTableData(responseFromBackend) {
+    let response = [];
+
+    if (Array.isArray(responseFromBackend)) {
+        response = responseFromBackend;
+    } else if (responseFromBackend.constructor === Object && Object.keys(responseFromBackend).length) {
+        response.push(responseFromBackend);
+    } else {
         return;
     }
+
     let container = document.querySelectorAll('.main-content')[1];
     container.querySelectorAll('*').forEach( n => n.remove() );
 

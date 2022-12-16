@@ -1,57 +1,88 @@
 window.addEventListener('DOMContentLoaded', () => {
-    fetchDPTUrl((url) => {
-        DPTURL = new URL(url);
-        appConfigured(DPTURL);
-    })
+    const fetchDpt = fetch('/dpt-url');
+    const fetchMqDpt = fetch('/dpt-mq-url');
+    let dptUrl;
+
+    fetchDpt
+        .then(response => response.json())
+        .then(data => {
+            dptUrl = data.dptUrl;
+            return fetchMqDpt;
+        })
+        .then(response => response.json())
+        .then(response => {
+            let DPTURL = new URL(dptUrl);
+            let DPTMQURL = new URL(response.dptMqUrl);
+            appConfigured(DPTURL, DPTMQURL);
+        })
 });
 
-function fetchDPTUrl(callback) {
-    fetch('/dpt-url', {}).then(r => r.json()).then(r => {
-        callback(r.dptUrl);
-    });
-}
-
-function appConfigured(DPTURL) {
+function appConfigured(DPTURL, DPTMQURL) {
     document.querySelectorAll('[data-call-to-action]').forEach((elem) => {
         let responseContainer = document.querySelector('[data-response-log]');
         let parentNode = elem.closest('[data-action]');
-        parentNode.addEventListener('request_status.submitted', (e) => {
-            setTimeout(() => {
-                checkRequestStatus(e.detail.url, e.detail.id, e.detail.parentNode);
-            }, 300);
-        })
-        elem.addEventListener('click', () => {
-            let form = parentNode.querySelector('form');
-            let formData = new FormData(form);
-            let method = form.method ?? 'get';
-            let appendParamToUrl = form.hasAttribute('data-append-param');
-            let urlParam = '';
-            if (appendParamToUrl) {
-                urlParam = formData.entries().next().value[1];
-            }
-            let action = new URL(form.action);
-            let executeFormActionUrl = new URL(`${DPTURL.href}`);
-            executeFormActionUrl.pathname = action.pathname + urlParam;
-            let options = {
-                method: method.toUpperCase()
-            };
-            let authHeader = form.dataset.authHeader;
-            options.headers = setOptionsHeader(authHeader);
-            if(method.toLowerCase() === 'post') {
-                options.body = formData;
-            }
-            responseContainer.innerHTML = '\n\r\n\r\t\t#########################################\t\t#########################################\t\t#########################################\t\t\n\r' + responseContainer.innerHTML;
-            responseContainer.innerHTML = '\n\r' + JSON.stringify({ url: executeFormActionUrl}, null, 2) + responseContainer.innerHTML;
-            fetch(executeFormActionUrl, options).then((r) => {
-                parentNode.querySelector('[data-dpt-cab-id]').value = r.headers.get('X-Dpt-Cab-Id');
-                let id = r.headers.get('X-Dpt-Cab-Id');
-                checkRequestStatus(DPTURL, id, parentNode);
-                r.json().then(resp => {
-                    parentNode.dispatchEvent(new CustomEvent('request.response.body', { detail: resp}))
-                    displayResponse(parentNode, resp);
+        let form = parentNode.querySelector('form');
+        let mqMessage = form.hasAttribute('data-send-mq');
+
+        if(!mqMessage){
+            parentNode.addEventListener('request_status.submitted', (e) => {
+                setTimeout(() => {
+                    checkRequestStatus(e.detail.url, e.detail.id, e.detail.parentNode);
+                }, 300);
+            })
+
+            elem.addEventListener('click', () => {
+                let formData = new FormData(form);
+                let method = form.method ?? 'get';
+                let appendParamToUrl = form.hasAttribute('data-append-param');
+                let urlParam = '';
+                if (appendParamToUrl) {
+                    urlParam = formData.entries().next().value[1];
+                }
+                let action = new URL(form.action);
+                let executeFormActionUrl = new URL(`${DPTURL.href}`);
+                executeFormActionUrl.pathname = action.pathname + urlParam;
+                let options = {
+                    method: method.toUpperCase()
+                };
+                let authHeader = form.dataset.authHeader;
+                options.headers = setOptionsHeader(authHeader);
+                if (method.toLowerCase() === 'post') {
+                    options.body = formData;
+                }
+                responseContainer.innerHTML = '\n\r\n\r\t\t#########################################\t\t#########################################\t\t#########################################\t\t\n\r' + responseContainer.innerHTML;
+                responseContainer.innerHTML = '\n\r' + JSON.stringify({url: executeFormActionUrl}, null, 2) + responseContainer.innerHTML;
+                fetch(executeFormActionUrl, options).then((r) => {
+                    parentNode.querySelector('[data-dpt-cab-id]').value = r.headers.get('X-Dpt-Cab-Id');
+                    let id = r.headers.get('X-Dpt-Cab-Id');
+                    checkRequestStatus(DPTURL, id, parentNode);
+
+                    r.json().then(resp => {
+                        parentNode.dispatchEvent(new CustomEvent('request.response.body', {detail: resp}))
+                        displayResponse(parentNode, resp);
+                    })
                 })
             })
-        })
+        } else{
+            var ws = new WebSocket(DPTMQURL);
+            var client = Stomp.over(ws);
+            var on_connect = function() {
+                console.log('connected');
+                elem.addEventListener('click', () => {
+                    let headers = [];
+
+                    headers['x-dpt-token'] = document.querySelector('header [name="xauth"]').value
+                    headers['x-dpt-token-space'] = document.querySelector('[name="x-dpt-token-space"]').value;
+                    let body = document.querySelector('[name="data-token"]').value;
+                    console.log('headers', headers);
+                    console.log('body', body);
+
+                    client.send('/queue/datatokenexchange', headers, JSON.stringify(body));
+                })
+            };
+            var on_error =  function() {};
+            client.connect('guest', 'guest', on_connect, on_error, '/');
+        }
     });
 }
 
@@ -88,8 +119,9 @@ function displayResponse(parentNode, resp) {
     responseContainer.innerHTML = JSON.stringify(resp, null, 2) + responseContainer.innerHTML;
 }
 
-function setOptionsHeader(authHeader) {
+function setOptionsHeader(authHeader, otherHeaders = []) {
     let optionsHeader= {};
+
     if (authHeader === 'basic') {
         optionsHeader['Authorization'] = 'Basic ' + document.querySelector('header [name="basic"]').value
     }
@@ -97,29 +129,11 @@ function setOptionsHeader(authHeader) {
         optionsHeader['X-DPT-AUTHORIZATION'] = document.querySelector('header [name="xauth"]').value
     }
 
+    if(otherHeaders.length > 0){
+        otherHeaders.forEach((otherHeader, key) => {optionsHeader[key] = otherHeader})
+    }
+
     return optionsHeader;
-}
-
-function generateTableHead(table, data) {
-    let thead = table.createTHead();
-    let row = thead.insertRow();
-    for (let key of data) {
-        let th = document.createElement("th");
-        let text = document.createTextNode(key);
-        th.appendChild(text);
-        row.appendChild(th);
-    }
-}
-
-function generateTable(table, data) {
-    for (let element of data) {
-        let row = table.insertRow();
-        for (key in element) {
-            let cell = row.insertCell();
-            let text = document.createTextNode(element[key]);
-            cell.appendChild(text);
-        }
-    }
 }
 
 function displayTableData(responseFromBackend) {
@@ -142,4 +156,26 @@ function displayTableData(responseFromBackend) {
 
     generateTableHead(table, data);
     generateTable(table, response);
+}
+
+function generateTableHead(table, data) {
+    let thead = table.createTHead();
+    let row = thead.insertRow();
+    for (let key of data) {
+        let th = document.createElement("th");
+        let text = document.createTextNode(key);
+        th.appendChild(text);
+        row.appendChild(th);
+    }
+}
+
+function generateTable(table, data) {
+    for (let element of data) {
+        let row = table.insertRow();
+        for (key in element) {
+            let cell = row.insertCell();
+            let text = document.createTextNode(element[key]);
+            cell.appendChild(text);
+        }
+    }
 }

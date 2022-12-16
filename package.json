@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "libsodium": "^0.7.10"
+    "libsodium": "^0.7.10",
+    "stompjs": "^2.3.3"
   }
 }

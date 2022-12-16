@@ -20,4 +20,16 @@
             <input type="text" readonly data-dpt-cab-id/>
         </div>
     </div>
+    <div data-action="exchangeDataForToken">
+        <div>
+            <button data-call-to-action>Exchange Data For Token</button>
+            <form action="/data-token/retrieve-temporary-data-token/" method="get" data-auth-header="xauth" data-send-mq>
+                <label>Temporary Token</label>
+                <input type="text" name="x-dpt-token-space" value=""/>
+                <label>Data</label>
+                <textarea name="data-token"></textarea>
+            </form>
+            <input type="text" readonly data-dpt-cab-id/>
+        </div>
+    </div>
 </div>

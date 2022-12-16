@@ -16,4 +16,12 @@ class UtilController extends AbstractController
         ]);
     }
 
+    #[Route('/dpt-mq-url', name: 'dpt_mq_url', methods: ['GET'])]
+    public function dptMqUrl()
+    {
+        return new JsonResponse([
+            'dptMqUrl' => $this->getParameter('dptMqUrl')
+        ]);
+    }
+
 }

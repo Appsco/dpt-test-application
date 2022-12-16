@@ -57,7 +57,7 @@ form [data-call-to-action] {
     padding: 10px;
 }
 
-form input[type=text], form input[type=password] {
+form input[type=text], form input[type=password], form textarea {
     display: block;
     margin: 5px 0;
     width: 80%;

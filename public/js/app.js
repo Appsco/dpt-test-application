@@ -70,10 +70,9 @@ function appConfigured(DPTURL, DPTMQURL) {
                 console.log('connected');
                 elem.addEventListener('click', () => {
                     let headers = [];
-
-                    headers['x-dpt-token'] = document.querySelector('header [name="xauth"]').value
-                    headers['x-dpt-token-space'] = document.querySelector('[name="x-dpt-token-space"]').value;
-                    let body = document.querySelector('[name="data-token"]').value;
+                    headers['x-dpt-token'] = document.querySelector('header [name="xauth"]').value;
+                    headers['x-dpt-token-space'] = parentNode.querySelector('[name="x-dpt-token-space"]').value;
+                    let body = parentNode.querySelector('[name="data-token"]').value;
                     console.log('headers', headers);
                     console.log('body', body);
 
@@ -139,7 +138,7 @@ function setOptionsHeader(authHeader, otherHeaders = []) {
 function displayTableData(responseFromBackend) {
     let response = [];
 
-    if (Array.isArray(responseFromBackend)) {
+    if (Array.isArray(responseFromBackend) && responseFromBackend.length) {
         response = responseFromBackend;
     } else if (responseFromBackend.constructor === Object && Object.keys(responseFromBackend).length) {
         response.push(responseFromBackend);

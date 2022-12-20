@@ -13,17 +13,17 @@
     <div data-action="retrieveTemporaryDataToken">
         <div>
             <button data-call-to-action>Retrieve Temporary Data Token</button>
-            <form action="/data-token/retrieve-temporary-data-token/" method="get" data-auth-header="xauth" data-append-param>
+            <form action="/data-token/retrieve-temporary-data-token/" method="get" data-auth-header="xauth">
                 <label>Temporary Token</label>
-                <input type="text" name="token" value=""/>
+                <input type="text" name="token" value="" data-append-param/>
             </form>
             <input type="text" readonly data-dpt-cab-id/>
         </div>
     </div>
     <div data-action="exchangeDataForToken">
         <div>
-            <button data-call-to-action>Exchange Data For Token</button>
-            <form action="/data-token/retrieve-temporary-data-token/" method="get" data-auth-header="xauth" data-send-mq>
+            <button data-mq-call-to-action>Exchange Data For Token</button>
+            <form action="/data-token/retrieve-temporary-data-token/" method="get" data-auth-header="xauth">
                 <label>Temporary Token</label>
                 <input type="text" name="x-dpt-token-space" value=""/>
                 <label>Data</label>

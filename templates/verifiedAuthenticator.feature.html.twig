@@ -1,0 +1,63 @@
+<div class="feature-box">
+    <h3>Verified Authenticator</h3>
+    <div data-action="registerAuthenticator">
+        <div>
+            <button data-call-to-action>Register Authenticator</button>
+            <form action="/verified-authenticator/register" method="post" data-auth-header="xauth">
+                <label>Device Unique Identifier</label>
+                <input type="text" name="device_unique_identifier" value=""/>
+            </form>
+            <input type="text" readonly data-dpt-cab-id/>
+        </div>
+    </div>
+    <div data-action="setMaximumVotingAttempts">
+        <div>
+            <button data-call-to-action>Set Maximum Voting Attempts</button>
+            <form action="/verified-authenticator/set-maximum-voting-attempts" method="post" data-auth-header="xauth">
+                <label>Id (optional UUID)</label>
+                <input type="text" name="id" value=""/>
+                <label>Number of attempts</label>
+                <input type="text" name="number_of_attempts" value=""/>
+            </form>
+            <input type="text" readonly data-dpt-cab-id/>
+        </div>
+    </div>
+    <div data-action="SetQuorumStrategy">
+        <div>
+            <button data-call-to-action>Set Quorum Strategy</button>
+            <form action="/verified-authenticator/set-quorum-strategy" method="post" data-auth-header="xauth">
+                <label>Id (optional UUID)</label>
+                <input type="text" name="id" value=""/>
+                <label>Strategy</label>
+                <input type="text" name="strategy" value=""/>
+                <label>Strategy Params</label>
+                <input type="text" name="strategy_params" value=""/>
+            </form>
+            <input type="text" readonly data-dpt-cab-id/>
+        </div>
+    </div>
+    <div data-action="setQuorumSize">
+        <div>
+            <button data-call-to-action>Set Quorum Size</button>
+            <form action="/verified-authenticator/set-quorum-size" method="post" data-auth-header="xauth">
+                <label>Id (optional UUID)</label>
+                <input type="text" name="id" value=""/>
+                <label>Size</label>
+                <input type="text" name="size" value=""/>
+            </form>
+            <input type="text" readonly data-dpt-cab-id/>
+        </div>
+    </div>
+    <div data-action="setVotingTimeLimit">
+        <div>
+            <button data-call-to-action>Set Voting Time Limit</button>
+            <form action="/verified-authenticator/set-voting-time-limit" method="post" data-auth-header="xauth">
+                <label>Id (optional UUID)</label>
+                <input type="text" name="id" value=""/>
+                <label>Time limit</label>
+                <input type="text" name="time_limit" value=""/>
+            </form>
+            <input type="text" readonly data-dpt-cab-id/>
+        </div>
+    </div>
+</div>

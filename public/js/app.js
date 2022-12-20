@@ -1,87 +1,61 @@
 window.addEventListener('DOMContentLoaded', () => {
-    const fetchDpt = fetch('/dpt-url');
-    const fetchMqDpt = fetch('/dpt-mq-url');
-    let dptUrl;
 
-    fetchDpt
-        .then(response => response.json())
-        .then(data => {
-            dptUrl = data.dptUrl;
-            return fetchMqDpt;
-        })
+    fetch('/dpt-url')
         .then(response => response.json())
         .then(response => {
-            let DPTURL = new URL(dptUrl);
-            let DPTMQURL = new URL(response.dptMqUrl);
-            appConfigured(DPTURL, DPTMQURL);
-        })
+            let DPTURL = new URL(response.dptUrl);
+            appConfigured(DPTURL);
+        });
 });
 
-function appConfigured(DPTURL, DPTMQURL) {
+function appConfigured(DPTURL) {
     document.querySelectorAll('[data-call-to-action]').forEach((elem) => {
         let responseContainer = document.querySelector('[data-response-log]');
         let parentNode = elem.closest('[data-action]');
         let form = parentNode.querySelector('form');
-        let mqMessage = form.hasAttribute('data-send-mq');
 
-        if(!mqMessage){
-            parentNode.addEventListener('request_status.submitted', (e) => {
-                setTimeout(() => {
-                    checkRequestStatus(e.detail.url, e.detail.id, e.detail.parentNode);
-                }, 300);
-            })
+        parentNode.addEventListener('request_status.submitted', (e) => {
+            setTimeout(() => {
+                checkRequestStatus(e.detail.url, e.detail.id, e.detail.parentNode);
+            }, 300);
+        })
 
-            elem.addEventListener('click', () => {
-                let formData = new FormData(form);
-                let method = form.method ?? 'get';
-                let appendParamToUrl = form.hasAttribute('data-append-param');
-                let urlParam = '';
-                if (appendParamToUrl) {
-                    urlParam = formData.entries().next().value[1];
-                }
-                let action = new URL(form.action);
-                let executeFormActionUrl = new URL(`${DPTURL.href}`);
-                executeFormActionUrl.pathname = action.pathname + urlParam;
-                let options = {
-                    method: method.toUpperCase()
-                };
-                let authHeader = form.dataset.authHeader;
-                options.headers = setOptionsHeader(authHeader);
-                if (method.toLowerCase() === 'post') {
-                    options.body = formData;
-                }
-                responseContainer.innerHTML = '\n\r\n\r\t\t#########################################\t\t#########################################\t\t#########################################\t\t\n\r' + responseContainer.innerHTML;
-                responseContainer.innerHTML = '\n\r' + JSON.stringify({url: executeFormActionUrl}, null, 2) + responseContainer.innerHTML;
-                fetch(executeFormActionUrl, options).then((r) => {
-                    parentNode.querySelector('[data-dpt-cab-id]').value = r.headers.get('X-Dpt-Cab-Id');
-                    let id = r.headers.get('X-Dpt-Cab-Id');
-                    checkRequestStatus(DPTURL, id, parentNode);
-
-                    r.json().then(resp => {
-                        parentNode.dispatchEvent(new CustomEvent('request.response.body', {detail: resp}))
-                        displayResponse(parentNode, resp);
-                    })
-                })
-            })
-        } else{
-            var ws = new WebSocket(DPTMQURL);
-            var client = Stomp.over(ws);
-            var on_connect = function() {
-                console.log('connected');
-                elem.addEventListener('click', () => {
-                    let headers = [];
-                    headers['x-dpt-token'] = document.querySelector('header [name="xauth"]').value;
-                    headers['x-dpt-token-space'] = parentNode.querySelector('[name="x-dpt-token-space"]').value;
-                    let body = parentNode.querySelector('[name="data-token"]').value;
-                    console.log('headers', headers);
-                    console.log('body', body);
-
-                    client.send('/queue/datatokenexchange', headers, JSON.stringify(body));
-                })
+        elem.addEventListener('click', () => {
+            let formData = new FormData(form);
+            let method = form.method ?? 'get';
+            let appendParamToUrl = form.querySelector('[data-append-param]');
+            let action = new URL(form.action + (appendParamToUrl !== null ? appendParamToUrl.value : ''));
+            let executeFormActionUrl = new URL(`${DPTURL.href}`);
+            executeFormActionUrl.pathname = action.pathname;
+            let options = {
+                method: method.toUpperCase()
             };
-            var on_error =  function() {};
-            client.connect('guest', 'guest', on_connect, on_error, '/');
-        }
+            let authHeader = form.dataset.authHeader;
+            options.headers = setOptionsHeader(authHeader);
+            if (method.toLowerCase() === 'post') {
+                options.body = formData;
+            }
+            responseContainer.innerHTML = '\n\r\n\r\t\t#########################################\t\t#########################################\t\t\n\r' + responseContainer.innerHTML;
+            responseContainer.innerHTML = '\n\r' + JSON.stringify({url: executeFormActionUrl}, null, 2) + responseContainer.innerHTML;
+            fetch(executeFormActionUrl, options).then((r) => {
+                if(r.status >= 300) {
+                    r.json().then(r => {
+                        responseContainer.innerHTML = '\n\r' + JSON.stringify(r, null, 2) + responseContainer.innerHTML;
+                    })
+                    parentNode.classList.add('blink-red');
+                    setTimeout(() => {parentNode.classList.remove('blink-red');}, 300);
+                    return;
+                }
+                parentNode.querySelector('[data-dpt-cab-id]').value = r.headers.get('X-Dpt-Cab-Id');
+                let id = r.headers.get('X-Dpt-Cab-Id');
+                checkRequestStatus(DPTURL, id, parentNode);
+
+                r.json().then(resp => {
+                    parentNode.dispatchEvent(new CustomEvent('request.response.body', {detail: resp}))
+                    displayResponse(parentNode, resp);
+                })
+            })
+        })
     });
 }
 
@@ -118,18 +92,14 @@ function displayResponse(parentNode, resp) {
     responseContainer.innerHTML = JSON.stringify(resp, null, 2) + responseContainer.innerHTML;
 }
 
-function setOptionsHeader(authHeader, otherHeaders = []) {
-    let optionsHeader= {};
+function setOptionsHeader(authHeader) {
+    let optionsHeader = {};
 
     if (authHeader === 'basic') {
         optionsHeader['Authorization'] = 'Basic ' + document.querySelector('header [name="basic"]').value
     }
     if (authHeader === 'xauth') {
         optionsHeader['X-DPT-AUTHORIZATION'] = document.querySelector('header [name="xauth"]').value
-    }
-
-    if(otherHeaders.length > 0){
-        otherHeaders.forEach((otherHeader, key) => {optionsHeader[key] = otherHeader})
     }
 
     return optionsHeader;

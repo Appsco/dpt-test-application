@@ -1,0 +1,15 @@
+<div style="border: 1px solid #cccccc; box-sizing: border-box; margin:2px;">
+    <h3>Pool</h3>
+    <div data-action="submitPool">
+        <div>
+            <button data-call-to-action>Create Pool</button>
+            <form action="/voting/create" method="post" data-auth-header="basic">
+                    <label>Title</label>
+                    <input type="text" name="title" value=""/>
+                    <label>Question</label>
+                    <input type="text" name="question" value=""/>
+                </form>
+            <input type="text" readonly data-dpt-cab-id/>
+        </div>
+    </div>
+</div>

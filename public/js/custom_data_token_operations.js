@@ -9,5 +9,9 @@ window.addEventListener('DOMContentLoaded', () => {
         displayTableData(resp);
         document.querySelector('[data-action="retrieveTemporaryDataToken"]').querySelector('[data-send-mq]').value = resp.token;
     })
+    document.querySelector('[data-action="listDataTokens"]').addEventListener('request.response.body', (e) => {
+        let resp = e.detail;
+        displayTableData(resp);
+    })
 });
 

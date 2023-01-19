@@ -1,5 +1,13 @@
 <div class="feature-box">
     <h3>Data Token Feature</h3>
+    <div data-action="listDataTokens">
+        <div>
+            <button data-call-to-action>List Data Tokens</button>
+            <form action="/data-token/list-data-tokens" method="get" data-auth-header="xauth">
+            </form>
+            <input type="hidden" readonly data-dpt-cab-id/>
+        </div>
+    </div>
     <div data-action="reserveTokenSpace">
         <div>
             <button data-call-to-action>Reserve Token Space</button>

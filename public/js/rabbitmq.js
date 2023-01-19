@@ -28,9 +28,16 @@ function configureMQ(DPTMQURL) {
                 client.send('/queue/datatokenexchange', headers, JSON.stringify(body));
             })
         });
-
     };
     let on_error = function () {
     };
     client.connect('guest', 'guest', on_connect, on_error, '/');
+    window.addEventListener('rabbit.setup-listener', (e) => {
+        let profile = e.detail.profile;
+        client.subscribe(`/queue/data_response.${profile}`, (frame) => {
+            let responseContainer = document.querySelector('[data-response-log]');
+            responseContainer.innerHTML = '\n\r\n\r\t\t#########################################\t\t#########################################\t\t\n\r' + responseContainer.innerHTML;
+            responseContainer.innerHTML = '\n\r' + JSON.stringify({body: frame.body, headers: frame.headers}, null, 2) + responseContainer.innerHTML;
+        })
+    });
 }

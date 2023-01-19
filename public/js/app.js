@@ -5,9 +5,34 @@ window.addEventListener('DOMContentLoaded', () => {
         .then(response => {
             let DPTURL = new URL(response.dptUrl);
             appConfigured(DPTURL);
+            dataRequestListener(DPTURL);
         });
 });
 
+function dataRequestListener(DPTURL) {
+    window.addEventListener('request-data', (e) => {
+        let token = e.detail.token;
+        let profile = e.detail.profile;
+        window.dispatchEvent(new CustomEvent('rabbit.setup-listener', {
+            detail: {
+                profile: profile
+            }
+        }));
+
+        let formData = new FormData();
+        formData.set('token', token);
+        let executeFormActionUrl = new URL(`${DPTURL.href}data-token/request-data`);
+        let options = {
+            method: 'POST'
+        };
+        options.headers = setOptionsHeader('xauth');
+        options.body = formData;
+        let responseContainer = document.querySelector('[data-response-log]');
+        responseContainer.innerHTML = '\n\r\n\r\t\t#########################################\t\t#########################################\t\t\n\r' + responseContainer.innerHTML;
+        responseContainer.innerHTML = '\n\r' + JSON.stringify({url: executeFormActionUrl}, null, 2) + responseContainer.innerHTML;
+        fetch(executeFormActionUrl, options);
+    })
+}
 function appConfigured(DPTURL) {
     document.querySelectorAll('[data-call-to-action]').forEach((elem) => {
         let responseContainer = document.querySelector('[data-response-log]');
@@ -125,6 +150,7 @@ function displayTableData(responseFromBackend) {
 
     generateTableHead(table, data);
     generateTable(table, response);
+    return table;
 }
 
 function generateTableHead(table, data) {

@@ -22,7 +22,7 @@
         <div>
             <button data-call-to-action>Retrieve Temporary Data Token</button>
             <form action="/data-token/retrieve-temporary-data-token/" method="get" data-auth-header="xauth">
-                <label>Temporary Token</label>
+                <label>Token Space Request Id</label>
                 <input type="text" name="token" value="" data-append-param/>
             </form>
             <input type="text" readonly data-dpt-cab-id/>
@@ -32,7 +32,7 @@
         <div>
             <button data-call-to-action>Exchange data for token Over HTTP</button>
             <form action="/data-token/exchange-data-for-token" method="post" data-auth-header="xauth">
-                    <label>Token</label>
+                    <label>Temporary Token</label>
                     <input type="text" name="temporaryTokenSpace" value=""/>
                     <label>Data</label>
                     <input type="text" name="data" value=""/>

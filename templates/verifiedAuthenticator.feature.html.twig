@@ -1,15 +1,5 @@
 <div class="feature-box">
     <h3>Verified Authenticator</h3>
-    <div data-action="registerAuthenticator">
-        <div>
-            <button data-call-to-action>Register Authenticator</button>
-            <form action="/verified-authenticator/register" method="post" data-auth-header="xauth">
-                <label>Device Unique Identifier</label>
-                <input type="text" name="device_unique_identifier" value=""/>
-            </form>
-            <input type="text" readonly data-dpt-cab-id/>
-        </div>
-    </div>
     <div data-action="setMaximumVotingAttempts">
         <div>
             <button data-call-to-action>Set Maximum Voting Attempts</button>
@@ -58,6 +48,20 @@
                 <input type="text" name="time_limit" value=""/>
             </form>
             <input type="text" readonly data-dpt-cab-id/>
+        </div>
+    </div>
+    <div data-action="listVerifiedAuthenticators">
+        <div>
+            <button data-call-to-action>List Verified Authenticators</button>
+            <form action="/verified-authenticator/list-verified-authenticator" method="get" data-auth-header="xauth"></form>
+            <div data-dpt-cab-id></div>
+        </div>
+    </div>
+    <div data-action="retrieveStrategy">
+        <div>
+            <button data-call-to-action>Retrieve Strategy</button>
+            <form action="/verified-authenticator/retrieve-strategy" method="get" data-auth-header="xauth"></form>
+            <div data-dpt-cab-id></div>
         </div>
     </div>
 </div>

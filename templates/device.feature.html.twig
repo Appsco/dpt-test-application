@@ -25,4 +25,14 @@
             <div data-dpt-cab-id></div>
         </div>
     </div>
+    <div data-action="verifyAuthenticator">
+        <div>
+            <button data-call-to-action>Verify Authenticator</button>
+            <form action="/verified-authenticator/register" method="post" data-auth-header="xauth">
+                <label>Device Unique Identifier</label>
+                <input type="text" name="device_unique_identifier" value=""/>
+            </form>
+            <input type="text" readonly data-dpt-cab-id/>
+        </div>
+    </div>
 </div>

@@ -16,6 +16,11 @@ window.addEventListener('DOMContentLoaded', () => {
         displayTableData(resp);
     })
 
+    document.querySelector('[data-action="listAuthApplications"]').addEventListener('request.response.body', (e) => {
+        let resp = e.detail;
+        displayTableData(resp);
+    })
+
     rememberAuthToken();
     registerPackButton();
 });

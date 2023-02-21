@@ -30,7 +30,7 @@
         <div>
             <button data-call-to-action>Retrieve temp token</button>
             <form action="/profile/retrieve-temp-token" method="post">
-                <label>Obtain Token Request Id</label>
+                <label>Obtain token request id</label>
                 <input type="text" name="id" value=""/>
             </form>
             <input type="text" readonly data-dpt-cab-id/>
@@ -52,8 +52,19 @@
         <div>
             <button data-call-to-action>Retrieve auth token</button>
             <form action="/profile/retrieve-authorization-token" method="post" data-auth-header="xauth">
-                <label>Auth Token Request Id</label>
+                <label>Auth token request id</label>
                 <input type="text" name="request_auth_token_command_id" value=""/>
+            </form>
+            <input type="text" readonly data-dpt-cab-id/>
+        </div>
+    </div>
+
+    <div data-action="reauthorizeAuthToken">
+        <div>
+            <button data-call-to-action>Reauthorize auth token</button>
+            <form action="/profile/reauthorize-authorization-token" method="post" data-auth-header="xauth">
+                <label>Time to live</label>
+                <input type="text" name="ttl" value="" placeholder="optional"/>
             </form>
             <input type="text" readonly data-dpt-cab-id/>
         </div>

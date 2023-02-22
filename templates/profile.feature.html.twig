@@ -69,4 +69,13 @@
             <input type="text" readonly data-dpt-cab-id/>
         </div>
     </div>
+
+    <div data-action="revokeAuthToken">
+        <div>
+            <button data-call-to-action>Revoke auth token</button>
+            <form action="/profile/revoke-authorization-token" method="post" data-auth-header="xauth">
+            </form>
+            <input type="text" readonly data-dpt-cab-id/>
+        </div>
+    </div>
 </div>

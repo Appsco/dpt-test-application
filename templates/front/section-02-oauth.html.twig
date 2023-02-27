@@ -1,0 +1,223 @@
+<div class="obtainaccesstoken" data-action="obtainAccessToken">
+    <div class="frame-parent">
+        <div class="form-wrapper">
+            <form class="form3" data-action="obtainAccessToken">
+                <div class="form-parent">
+                    <div class="inputfieldwrapperbox2">
+                        <input class="inputfieldandtext" type="text" />
+                    </div>
+                    <label class="inputlabel2">Authorization Code</label>
+                </div>
+            </form>
+        </div>
+        <div class="inputfieldwrapperbox4">
+            <input
+                    class="inputfieldandtext28"
+                    type="text"
+                    readonly
+                    data-dpt-cab-id
+            />
+        </div>
+    </div>
+    <button class="requestbutton">
+        <div class="buttontext">Obtain Access Token</div>
+    </button>
+</div>
+<div class="retrieveauthcode" data-action="retrieveAuthorizationCode">
+    <div class="frame-parent">
+        <div class="form-wrapper">
+            <form
+                    class="form"
+                    action="/oauth-application/retrieve-authorization-code"
+                    method="post"
+                    data-auth-header="xauth"
+            >
+                <div class="inputdivbox2">
+                    <div class="inputfieldwrapperbox2">
+                        <input class="inputfieldandtext" type="text" />
+                    </div>
+                    <label class="inputlabel2">Nonce</label>
+                </div>
+                <div class="form-parent">
+                    <div class="inputfieldwrapperbox2">
+                        <input class="inputfieldandtext" type="text" />
+                    </div>
+                    <label class="inputlabel2"
+                    >Request Authorization Code</label
+                    >
+                </div>
+            </form>
+        </div>
+        <div class="inputfieldwrapperbox4">
+            <input
+                    class="inputfieldandtext31"
+                    type="text"
+                    readonly
+                    data-dpt-cab-id
+            />
+        </div>
+    </div>
+    <button class="requestbutton">
+        <div class="buttontext">Retrieve Authorization Code</div>
+    </button>
+</div>
+<div class="requestauthcode" data-action="requestAuthorizationCode">
+    <div class="frame-parent">
+        <div class="form-wrapper">
+            <form
+                    class="form17"
+                    action="/profile/oauth-application-request-authorization-code"
+                    method="post"
+                    data-auth-header="xauth"
+            >
+                <div class="inputdivbox24">
+                    <div class="inputfieldwrapperbox-parent">
+                        <div class="inputfieldwrapperbox18">
+                            <input class="inputfieldandtext16" type="text" />
+                        </div>
+                        <button class="infobutton">
+                            <img
+                                    class="infobutton-child"
+                                    alt=""
+                                    src="/assets/ellipse-6.svg"
+                            /><img
+                                    class="infobutton-item"
+                                    alt=""
+                                    src="/assets/group-334593.svg"
+                            />
+                        </button>
+                    </div>
+                    <label class="inputlabel2">Scope</label>
+                </div>
+                <div class="inputdivbox2">
+                    <label class="inputlabel2">Nonce</label>
+                    <div class="inputfieldwrapperbox2">
+                        <input class="inputfieldandtext" type="text" />
+                    </div>
+                </div>
+                <div class="form-parent">
+                    <label class="inputlabel2">Client ID</label>
+                    <div class="inputfieldwrapperbox2">
+                        <input class="inputfieldandtext" type="text" />
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="inputfieldwrapperbox4">
+            <input
+                    class="inputfieldandtext2"
+                    type="text"
+                    readonly
+                    data-dpt-cab-id
+            />
+        </div>
+    </div>
+    <button class="requestbutton">
+        <div class="buttontext">Request Authorization Code</div>
+    </button>
+</div>
+<div class="packbasicauth" data-action="packBasicAuth">
+    <div class="frame-parent">
+        <div class="form-wrapper">
+            <form class="form" class="pack">
+                <div class="inputdivbox2">
+                    <label class="inputlabel2">Client Secret</label>
+                    <div class="inputfieldwrapperbox2">
+                        <input class="inputfieldandtext" type="text" />
+                    </div>
+                </div>
+                <div class="form-parent">
+                    <label class="inputlabel2">Client ID</label>
+                    <div class="inputfieldwrapperbox2">
+                        <input class="inputfieldandtext" type="text" />
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="inputfieldwrapperbox4">
+            <input
+                    class="inputfieldandtext31"
+                    type="text"
+                    readonly
+                    data-dpt-cab-id
+            />
+        </div>
+    </div>
+    <button class="requestbutton">
+        <div class="buttontext">Pack Basic Authorization</div>
+    </button>
+</div>
+<div
+        class="retrievecredentials"
+        data-action="retrieveOAuthCredentials"
+>
+    <div class="inputfieldwrapperbox43">
+        <input
+                class="inputfieldandtext24"
+                type="text"
+                readonly
+                data-dpt-cab-id
+        />
+    </div>
+    <form
+            class="form-parent"
+            action="/profile/retrieve-oauth-application-configuration"
+            method="post"
+            data-auth-header="xauth"
+    >
+        <div class="form-parent">
+            <div class="inputfieldwrapperbox2">
+                <input class="inputfieldandtext" type="text" />
+            </div>
+            <label class="inputlabel2">Registration Request ID</label>
+        </div>
+    </form>
+    <button class="requestbutton">
+        <div class="buttontext">Retrieve Credentials</div>
+    </button>
+</div>
+<div class="registeroauthapp" data-action="registerOAuthApplication">
+    <div class="inputfieldwrapperbox45">
+        <input
+                class="inputfieldandtext41"
+                type="text"
+                readonly
+                data-dpt-cab-id
+        />
+        <div class="copybutton3">
+            <div class="copylabel2" data-copy=".inputfieldandtext41">Copy</div>
+        </div>
+    </div>
+    <form
+            class="form20"
+            action="/profile/oauth-application-register"
+            method="post"
+            data-auth-header="xauth"
+    >
+        <div class="inputdivbox30">
+            <div class="inputfieldwrapperbox46">
+                <input class="inputfieldandtext" type="text" />
+            </div>
+            <label class="inputlabel10"
+            ><span class="id">Redirect Uri </span
+                ><i class="id">(optional)</i></label
+            >
+        </div>
+        <div class="form-parent">
+            <div class="inputfieldwrapperbox2">
+                <input class="inputfieldandtext" type="text" />
+            </div>
+            <label class="inputlabel2">Title</label>
+        </div>
+    </form>
+    <button class="requestbutton">
+        <div class="buttontext">Register OAuth Application</div>
+    </button>
+</div>
+<div class="horizontalline15"></div>
+<div class="horizontalline16"></div>
+<div class="horizontalline17"></div>
+<div class="horizontalline18"></div>
+<div class="horizontalline19"></div>
+<div class="horizontalline20"></div>
+<b class="sectionheadertitle6">OAuth Application Authorization</b>

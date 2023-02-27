@@ -1,0 +1,154 @@
+<div class="settimelimit" data-action="setVotingTimeLimit">
+    <form
+            class="form5"
+            action="/verified-authenticator/set-voting-time-limit"
+            method="post"
+            data-auth-header="xauth"
+    >
+        <div class="inputdivbox9">
+            <label class="inputlabel9">Time Limit</label>
+            <div class="inputfieldwrapperbox13">
+                <input class="inputfieldandtext11" type="text" />
+            </div>
+        </div>
+        <div class="form-parent">
+            <div class="inputfieldwrapperbox2">
+                <input class="inputfieldandtext" type="text" />
+            </div>
+            <label class="inputlabel10"
+            ><span class="id">ID </span
+                ><i class="id">(optional UUID)</i></label
+            >
+        </div>
+    </form>
+    <button class="requestbutton">
+        <div class="buttontext">Set Time Limit</div>
+    </button>
+</div>
+<div class="setquorumsize" data-action="setQuorumSize">
+    <form
+            class="form6"
+            action="/verified-authenticator/set-quorum-size"
+            method="post"
+            data-auth-header="xauth"
+    >
+        <div class="inputdivbox11">
+            <div class="inputfieldwrapperbox15">
+                <input class="inputfieldandtext13" type="text" />
+            </div>
+            <label class="inputlabel2">Size</label>
+        </div>
+        <div class="form-parent">
+            <div class="inputfieldwrapperbox2">
+                <input class="inputfieldandtext" type="text" />
+            </div>
+            <label class="inputlabel10"
+            ><span class="id">ID </span
+                ><i class="id">(optional UUID)</i></label
+            >
+        </div>
+    </form>
+    <button class="requestbutton">
+        <div class="buttontext">Set Quorum Size</div>
+    </button>
+</div>
+<div class="setquorumstrategy" data-action="SetQuorumStrategy">
+    <button class="requestbutton">
+        <div class="buttontext">Set Quorum Strategy</div>
+    </button>
+    <form
+            class="form7"
+            action="/verified-authenticator/set-quorum-strategy"
+            data-auth-header="xauth"
+    >
+        <img class="infobutton-icon" alt="" src="/assets/infobutton.svg" />
+        <div class="inputdivbox13">
+            <div class="inputfieldwrapperbox15">
+                <input class="inputfieldandtext15" type="text" />
+            </div>
+            <label class="inputlabel2">Strategy Parametars</label>
+        </div>
+        <div class="inputdivbox14">
+            <label class="inputlabel9">Strategy</label>
+            <div class="inputfieldwrapperbox18">
+                <input class="inputfieldandtext16" type="text" />
+            </div>
+        </div>
+        <div class="form-parent">
+            <div class="inputfieldwrapperbox2">
+                <input class="inputfieldandtext" type="text" />
+            </div>
+            <label class="inputlabel10"
+            ><span class="id">ID </span
+                ><i class="id">(optional UUID)</i></label
+            >
+        </div>
+    </form>
+</div>
+<div
+        class="setmaximumvotingattempts"
+        data-action="setMaximumVotingAttempts"
+>
+    <form
+            class="form6"
+            action="/verified-authenticator/set-maximum-voting-attempts"
+            method="post"
+            data-auth-header="xauth"
+    >
+        <div class="inputdivbox11">
+            <div class="inputfieldwrapperbox15">
+                <input class="inputfieldandtext18" type="text" />
+            </div>
+            <label class="inputlabel2">Number Of Atempts</label>
+        </div>
+        <div class="form-parent">
+            <div class="inputfieldwrapperbox2">
+                <input class="inputfieldandtext" type="text" />
+            </div>
+            <label class="inputlabel10"
+            ><span class="id">ID </span
+                ><i class="id">(optional UUID)</i></label
+            >
+        </div>
+    </form>
+    <button class="requestbutton">
+        <div class="buttontext">Set Maximum Voting Atempts</div>
+    </button>
+</div>
+<div class="registerauthenticator" data-action="verifyAuthenticator">
+    <div class="inputdivbox18">
+        <div class="inputfieldwrapperbox22">
+            <input
+                    class="inputfieldandtext20"
+                    type="text"
+                    readonly
+                    data-dpt-cab-id
+            />
+        </div>
+        <div class="copybutton2">
+            <div class="copylabel2" data-copy=".inputfieldandtext20">Copy</div>
+        </div>
+    </div>
+    <form
+            class="form9"
+            action="/verified-authenticator/register"
+            method="post"
+            data-auth-header="xauth"
+    >
+        <div class="inputfieldwrapperbox23">
+            <label class="inputlabel9">Device Unique Identifier</label>
+            <div class="inputfieldwrapperbox24">
+                <input class="inputfieldandtext21" type="text" />
+            </div>
+        </div>
+    </form>
+    <button class="requestbutton">
+        <div class="buttontext">Register Authenticator</div>
+    </button>
+</div>
+<div class="horizontalline5"></div>
+<div class="horizontalline6"></div>
+<div class="horizontalline7"></div>
+<div class="horizontalline"></div>
+<b class="sectionheadertitle2">Voting Configuration</b
+><b class="sectionheadertitle3">Verified Authenticator</b>

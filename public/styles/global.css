@@ -1,0 +1,57 @@
+:root {
+  /* fonts */
+  --title-1-bold: Inter;
+
+  /* font sizes */
+  --text-xs-all-caps-medium-size: 12px;
+  --body-3-medium-size: 13px;
+  --body-2-regular-size: 15px;
+  --body-1-medium-size: 13px;
+  --title-1-bold-size: 20px;
+  --large-title-bold-size: 22px;
+
+  /* Colors */
+  --l00: #fff;
+  --dark-blue-900: #061938;
+  --main-pacific: #00aac2;
+  --l20: #f4f5f7;
+  --m80: #97a0af;
+  --pacific-200: #a4f0ed;
+  --m200: #6b778c;
+  --dark-blue-800: #172b4d;
+
+  /* Gaps */
+  --gap-sm: 8px;
+  --gap-md: 10px;
+  --gap-lg: 20px;
+
+  /* Paddings */
+  --padding-xs: 4px;
+  --padding-sm: 8px;
+  --padding-md: 10px;
+  --padding-lg: 20px;
+  --padding-xl: 36px;
+
+  /* border radiuses */
+  --br-xs: 3px;
+  --br-sm: 4px;
+  --br-md: 12px;
+  --br-lg: 20px;
+  --br-xl: 24px;
+}
+
+input:focus {
+  outline: none;
+}
+div[class^="inputfieldwrapperbox"]:focus-within {
+  border: 1px solid;
+  border-color: #00aac2;
+  border-radius: 20px;
+}
+
+
+
+button:hover {
+  transform: scale(1.1);
+  transition: all 0.2s ease;
+}

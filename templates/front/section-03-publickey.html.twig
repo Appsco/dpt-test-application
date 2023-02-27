@@ -1,0 +1,44 @@
+<div class="retrievepublickey" data-action="requestPublicKey">
+    <form
+            class="form12"
+            action="/device/request-unique-identifier"
+            method="post"
+            data-auth-header="xauth"
+    >
+        <div class="inputfieldwrapperbox22">
+            <input class="inputfieldandtext24" type="text" />
+        </div>
+    </form>
+    <button class="requestbutton10">
+        <div class="buttontext">Retrieve Public Key</div>
+    </button>
+</div>
+<div class="registerpublickey" data-action="registerPublicKey">
+    <div class="inputfieldwrapperbox25">
+        <input
+                class="inputfieldandtext2"
+                type="text"
+                readonly
+                data-dpt-cab-id
+        />
+    </div>
+    <form
+            class="form9"
+            action="/data-token/register-public-key"
+            method="post"
+            data-auth-header="xauth"
+    >
+        <div class="inputfieldwrapperbox23">
+            <label class="inputlabel9">Public Key</label>
+            <div class="inputfieldwrapperbox24">
+                <input class="inputfieldandtext26" type="text" />
+            </div>
+        </div>
+    </form>
+    <button class="requestbutton">
+        <div class="buttontext">Register Public Key</div>
+    </button>
+</div>
+<div class="horizontalline13"></div>
+<div class="horizontalline"></div>
+<b class="sectionheadertitle5">Public Key</b>

@@ -141,7 +141,7 @@ function displayTableData(responseFromBackend) {
         return;
     }
 
-    let container = document.querySelectorAll('.main-content')[1];
+    let container = document.querySelector('.main-content');
     container.querySelectorAll('*').forEach( n => n.remove() );
 
     let table = document.createElement('table');

@@ -917,7 +917,7 @@ html {
   color: var(--l00);
   text-align: left;
   display: inline-block;
-  width: 761px;
+  width: 703px;
   flex-shrink: 0;
 }
 
@@ -2218,11 +2218,15 @@ html {
   background-color: var(--l00);
   width: 881px;
   height: 443px;
-  overflow: hidden;
+  overflow: auto;
   max-width: 90%;
   max-height: 90%;
   text-align: left;
   font-size: var(--body-2-regular-size);
   color: var(--m200);
   font-family: var(--title-1-bold);
+}
+
+.hide{
+  display: none;
 }

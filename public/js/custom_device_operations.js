@@ -17,7 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         return new Blob(byteArrays, {type: contentType});
     }
-    document.querySelector('[data-action="retrieveProfileDevices"]').addEventListener('request.response.body', (e) => {
+    document.querySelector('[data-action="retrieveProfileDevices"]')?.addEventListener('request.response.body', (e) => {
         let resp = e.detail;
         let table = displayTableData(resp);
         let profile = '';
@@ -61,7 +61,7 @@ window.addEventListener('DOMContentLoaded', () => {
         })
     })
 
-    document.querySelector('[data-action="requestUniqueIdentifier"]').addEventListener('request.response.body', (e) => {
+    document.querySelector('[data-action="requestUniqueIdentifier"]')?.addEventListener('request.response.body', (e) => {
         let resp = e.detail;
         document.querySelector('[data-action="requestUniqueIdentifier"]').querySelector('[data-dpt-cab-id]').value = resp.deviceUniqueIdentifier;
         displayTableData(resp);

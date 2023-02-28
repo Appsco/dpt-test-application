@@ -131,6 +131,8 @@ function setOptionsHeader(authHeader) {
 }
 
 function displayTableData(responseFromBackend) {
+    document.getElementById("modalOpenButton").click();
+
     let response = [];
 
     if (Array.isArray(responseFromBackend) && responseFromBackend.length) {

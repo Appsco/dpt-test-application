@@ -2152,6 +2152,7 @@ html {
   top: 145px;
   left: 26px;
   gap: 40px;
+  margin-right: 20px;
 }
 
 .close {
@@ -2218,7 +2219,7 @@ html {
   background-color: var(--l00);
   width: 881px;
   height: 443px;
-  overflow: auto;
+  overflow: hidden;
   max-width: 90%;
   max-height: 90%;
   text-align: left;
@@ -2229,4 +2230,8 @@ html {
 
 .hide{
   display: none;
+}
+
+.main-content{
+  word-break: break-all;
 }

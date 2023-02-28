@@ -5,14 +5,12 @@
     <form class="form-parent" action="/profile/retrieve-authorization-token" method="post" data-auth-header="xauth">
         <div class="form-parent">
             <div class="inputfieldwrapperbox2">
-                <input class="inputfieldandtext23" type="text" />
+                <input class="inputfieldandtext23" name="request_auth_token_command_id" type="text" />
             </div>
-            <label class="inputlabel2"
-            >Authorization Token Request ID</label
-            >
+            <label class="inputlabel2">Authorization Token Request ID</label>
         </div>
     </form>
-    <button class="requestbutton19">
+    <button class="requestbutton19" data-call-to-action>
         <div class="buttontext">Retrieve Authorization Token</div>
     </button>
 </div>
@@ -31,7 +29,7 @@
                 <div class="inputdivbox-inner">
                     <div class="inputfieldwrapperbox-wrapper">
                         <div class="inputfieldwrapperbox18">
-                            <input class="inputfieldandtext47" type="text" value="all"/>
+                            <input class="inputfieldandtext47" type="text" name="scope" value="all"/>
                         </div>
                     </div>
                 </div>

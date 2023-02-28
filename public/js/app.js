@@ -28,7 +28,7 @@ function dataRequestListener(DPTURL) {
         options.headers = setOptionsHeader('xauth');
         options.body = formData;
         let responseContainer = document.querySelector('[data-response-log]');
-        responseContainer.innerHTML = '\n\r\n\r\t\t#########################################\t\t#########################################\t\t\n\r' + responseContainer.innerHTML;
+        responseContainer.innerHTML = '\n\r\n\r\t\t#########################################\n\r' + responseContainer.innerHTML;
         responseContainer.innerHTML = '\n\r' + JSON.stringify({url: executeFormActionUrl}, null, 2) + responseContainer.innerHTML;
         fetch(executeFormActionUrl, options);
     })
@@ -60,7 +60,7 @@ function appConfigured(DPTURL) {
             if (method.toLowerCase() === 'post') {
                 options.body = formData;
             }
-            responseContainer.innerHTML = '\n\r\n\r\t\t#########################################\t\t#########################################\t\t\n\r' + responseContainer.innerHTML;
+            responseContainer.innerHTML = '\n\r\n\r\t\t#########################################\n\r' + responseContainer.innerHTML;
             responseContainer.innerHTML = '\n\r' + JSON.stringify({url: executeFormActionUrl}, null, 2) + responseContainer.innerHTML;
             fetch(executeFormActionUrl, options).then((r) => {
                 if(r.status >= 300) {

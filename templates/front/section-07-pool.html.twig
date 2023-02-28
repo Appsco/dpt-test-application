@@ -1,7 +1,7 @@
 <div class="createpool" data-action="submitPool">
     <div>
         <button class="requestbutton">
-            <div class="buttontext">Create Pool</div>
+            <div class="buttontext" data-call-to-action tabindex="73">Create Pool</div>
         </button>
         <div class="frame-parent">
             <div class="form-wrapper">
@@ -9,17 +9,17 @@
                         class="form"
                         action="/voting/create"
                         method="post"
-                        data-auth-header="xauth"
+                        data-auth-header="basic"
                 >
                     <div class="inputdivbox2">
                         <div class="inputfieldwrapperbox2">
-                            <input class="inputfieldandtext" type="text" />
+                            <input class="inputfieldandtext" type="text" name="question" tabindex="72"/>
                         </div>
                         <label class="inputlabel2">Question</label>
                     </div>
                     <div class="form-parent">
                         <div class="inputfieldwrapperbox2">
-                            <input class="inputfieldandtext" type="text" />
+                            <input class="inputfieldandtext" type="text" name="title" tabindex="71"/>
                         </div>
                         <label class="inputlabel2">Title</label>
                     </div>

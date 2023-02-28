@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('[data-action="requestPublicKey"]').addEventListener('request.response.body', (e) => {
+    document.querySelector('[data-action="requestPublicKey"]')?.addEventListener('request.response.body', (e) => {
         let resp = e.detail;
         displayTableData(resp);
     })

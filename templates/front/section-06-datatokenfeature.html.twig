@@ -1,24 +1,24 @@
-<div class="exchangedatafortoken" data-action="exchangeDataForToken">
-    <button class="requestbutton">
-        <div class="buttontext">Exchange Data For Token</div>
+<div class="exchangedatafortoken" data-action="storeData">
+    <button class="requestbutton" data-call-to-action tabindex="68">
+        <div class="buttontext" >Exchange Data For Token</div>
     </button>
     <div class="frame-parent">
         <div class="form-wrapper">
             <form
                     class="form"
-                    action="/data-token/retrieve-temporary-data-token/"
+                    action="/data-token/exchange-data-for-token"
                     method="post"
                     data-auth-header="xauth"
             >
                 <div class="inputdivbox2">
                     <div class="inputfieldwrapperbox2">
-                        <input class="inputfieldandtext" type="text" />
+                        <input class="inputfieldandtext" type="text" name="data" tabindex="67"/>
                     </div>
                     <label class="inputlabel2">Data</label>
                 </div>
                 <div class="form-parent">
                     <div class="inputfieldwrapperbox2">
-                        <input class="inputfieldandtext" type="text" />
+                        <input class="inputfieldandtext" type="text" name="temporaryTokenSpace" tabindex="66"/>
                     </div>
                     <label class="inputlabel2">Temporary Token</label>
                 </div>
@@ -34,29 +34,23 @@
         </div>
     </div>
 </div>
-<div class="exchangedatafortokenoverhttp" data-action="storeData">
-    <div class="requestbutton2">
-        <div class="buttontext2">Exchange Data For Token Over HTTP</div>
+<div class="exchangedatafortokenoverhttp" data-action="retrieveTemporaryDataToken">
+    <div class="requestbutton2" data-call-to-action tabindex="65" style="cursor: pointer;">
+        <div class="buttontext2">Retrieve Temporary Data Token</div>
     </div>
     <div class="frame-parent">
         <div class="form-wrapper">
             <form
                     class="form"
-                    action="/data-token/exchange-data-for-token"
-                    method="post"
+                    action="/data-token/retrieve-temporary-data-token/"
+                    method="get"
                     data-auth-header="xauth"
             >
-                <div class="inputdivbox2">
+                <div class="inputdivbox3">
                     <div class="inputfieldwrapperbox2">
-                        <input class="inputfieldandtext" type="text" />
+                        <input class="inputfieldandtext" type="text" name="token" tabindex="64" data-append-param/>
                     </div>
-                    <label class="inputlabel2">Data</label>
-                </div>
-                <div class="form-parent">
-                    <div class="inputfieldwrapperbox2">
-                        <input class="inputfieldandtext" type="text" />
-                    </div>
-                    <label class="inputlabel2">Temporary Token</label>
+                    <label class="inputlabel2">Token Space Request Id</label>
                 </div>
             </form>
         </div>
@@ -71,8 +65,8 @@
     </div>
 </div>
 <div class="reservetokenspace" data-action="reserveTokenSpace">
-    <button class="requestbutton">
-        <div class="buttontext">Reserve Token Space</div>
+    <button class="requestbutton" data-call-to-action tabindex="62">
+        <div class="buttontext" >Reserve Token Space</div>
     </button>
     <div class="frame-parent">
         <div class="form-wrapper">
@@ -84,7 +78,7 @@
             >
                 <div class="form-parent">
                     <div class="inputfieldwrapperbox2">
-                        <input class="inputfieldandtext" type="text" />
+                        <input class="inputfieldandtext" type="text" name="context" tabindex="61"/>
                     </div>
                     <label class="inputlabel2">Context</label>
                 </div>
@@ -102,20 +96,21 @@
 </div>
 <div
         class="retrieveprofiledevices"
-        data-action="retrieveProfileDevices"
+        data-action="listDataTokens"
 >
     <form
             class="form4"
-            action="/device/retrieve-profile-devices"
-            method="post"
+            action="/data-token/list-data-tokens"
+            method="get"
             data-auth-header="xauth"
     >
-        <button class="requestbuttoninside">
-            <div class="retrieve-profile-devices">
-                Retrieve Profile Devices
-            </div>
-        </button>
     </form>
+    <input type="hidden" readonly data-dpt-cab-id/>
+    <button class="requestbuttoninside">
+        <div class="retrieve-profile-devices" tabindex="60" data-call-to-action>
+            List Data Tokens
+        </div>
+    </button>
 </div>
 <div class="horizontalline1"></div>
 <div class="horizontalline2"></div>

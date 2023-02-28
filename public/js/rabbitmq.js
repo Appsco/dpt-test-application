@@ -12,7 +12,7 @@ function configureMQ(DPTMQURL) {
     let client = Stomp.over(ws);
     client.debug = (message) => {
         if(!message.includes("PING") && !message.includes("PONG")) {
-            responseContainer.innerHTML = '\n\r\n\r\t\t#########################################\t\t#########################################\t\t\n\r' + responseContainer.innerHTML;
+            responseContainer.innerHTML = '\n\r\n\r\t\t#########################################\n\r' + responseContainer.innerHTML;
             responseContainer.innerHTML = `\n${message}\n` + responseContainer.innerHTML;
         }
     };
@@ -36,7 +36,7 @@ function configureMQ(DPTMQURL) {
         let profile = e.detail.profile;
         client.subscribe(`/queue/data_response.${profile}`, (frame) => {
             let responseContainer = document.querySelector('[data-response-log]');
-            responseContainer.innerHTML = '\n\r\n\r\t\t#########################################\t\t#########################################\t\t\n\r' + responseContainer.innerHTML;
+            responseContainer.innerHTML = '\n\r\n\r\t\t#########################################\n\r' + responseContainer.innerHTML;
             responseContainer.innerHTML = '\n\r' + JSON.stringify({body: frame.body, headers: frame.headers}, null, 2) + responseContainer.innerHTML;
         })
     });

@@ -1,41 +1,24 @@
 <div class="retrievepublickey" data-action="requestPublicKey">
-    <form
-            class="form12"
-            action="/device/request-unique-identifier"
-            method="post"
-            data-auth-header="xauth"
-    >
-        <div class="inputfieldwrapperbox22">
-            <input class="inputfieldandtext24" type="text" />
+    <form class="form12" action="/data-token/retrieve-public-key" method="post" data-auth-header="xauth">
+        <div class="inputfieldwrapperbox22" tabindex="304">
+            <input class="inputfieldandtext24" type="text" data-dpt-cab-id/>
         </div>
     </form>
-    <button class="requestbutton10">
+    <button data-call-to-action class="requestbutton10" tabindex="305">
         <div class="buttontext">Retrieve Public Key</div>
     </button>
 </div>
 <div class="registerpublickey" data-action="registerPublicKey">
-    <div class="inputfieldwrapperbox25">
-        <input
-                class="inputfieldandtext2"
-                type="text"
-                readonly
-                data-dpt-cab-id
-        />
+    <div class="inputfieldwrapperbox25" tabindex="303">
+        <input class="inputfieldandtext2" type="text" readonly data-dpt-cab-id/>
     </div>
-    <form
-            class="form9"
-            action="/data-token/register-public-key"
-            method="post"
-            data-auth-header="xauth"
-    >
-        <div class="inputfieldwrapperbox23">
-            <label class="inputlabel9">Public Key</label>
-            <div class="inputfieldwrapperbox24">
-                <input class="inputfieldandtext26" type="text" name="public_key"/>
-            </div>
+    <form class="form9" action="/data-token/register-public-key" method="post" data-auth-header="xauth">
+        <label class="inputlabel9">Public Key</label>
+        <div class="inputfieldwrapperbox24">
+            <input class="inputfieldandtext26" type="text" name="public_key" tabindex="301"/>
         </div>
     </form>
-    <button class="requestbutton">
+    <button data-call-to-action class="requestbutton" tabindex="302">
         <div class="buttontext">Register Public Key</div>
     </button>
 </div>

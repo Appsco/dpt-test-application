@@ -1,90 +1,61 @@
 <div class="obtainaccesstoken" data-action="obtainAccessToken">
     <div class="frame-parent">
         <div class="form-wrapper">
-            <form class="form3" data-action="obtainAccessToken">
+            <form class="form3" action="/oauth-application/obtain-access-token" method="post" data-action="obtainAccessToken" data-auth-header="basic">
                 <div class="form-parent">
                     <div class="inputfieldwrapperbox2">
-                        <input class="inputfieldandtext" type="text" />
+                        <input class="inputfieldandtext" type="text" name="authorization_code" tabindex="222"/>
                     </div>
                     <label class="inputlabel2">Authorization Code</label>
                 </div>
             </form>
+            <button class="requestbutton" data-call-to-action tabindex="223">
+                <div class="buttontext">Obtain Access Token</div>
+            </button>
         </div>
         <div class="inputfieldwrapperbox4">
-            <input
-                    class="inputfieldandtext28"
-                    type="text"
-                    readonly
-                    data-dpt-cab-id
-            />
+            <input class="inputfieldandtext28" type="text" readonly data-dpt-cab-id tabindex="224"/>
         </div>
     </div>
-    <button class="requestbutton">
-        <div class="buttontext">Obtain Access Token</div>
-    </button>
 </div>
 <div class="retrieveauthcode" data-action="retrieveAuthorizationCode">
     <div class="frame-parent">
         <div class="form-wrapper">
-            <form
-                    class="form"
-                    action="/oauth-application/retrieve-authorization-code"
-                    method="post"
-                    data-auth-header="xauth"
-            >
+            <form class="form" action="/oauth-application/retrieve-authorization-code" method="post" data-auth-header="basic">
                 <div class="inputdivbox2">
                     <div class="inputfieldwrapperbox2">
-                        <input class="inputfieldandtext" type="text" />
+                        <input class="inputfieldandtext" type="text" tabindex="219" name="nonce"/>
                     </div>
                     <label class="inputlabel2">Nonce</label>
                 </div>
                 <div class="form-parent">
                     <div class="inputfieldwrapperbox2">
-                        <input class="inputfieldandtext" type="text" />
+                        <input class="inputfieldandtext" type="text" tabindex="218" name="id"/>
                     </div>
-                    <label class="inputlabel2"
-                    >Request Authorization Code</label
-                    >
+                    <label class="inputlabel2">Request Authorization Code</label>
                 </div>
             </form>
+            <button class="requestbutton" data-call-to-action tabindex="220">
+                <div class="buttontext">Retrieve Authorization Code</div>
+            </button>
         </div>
         <div class="inputfieldwrapperbox4">
-            <input
-                    class="inputfieldandtext31"
-                    type="text"
-                    readonly
-                    data-dpt-cab-id
-            />
+            <input class="inputfieldandtext31" type="text" readonly data-dpt-cab-id tabindex="221"/>
         </div>
     </div>
-    <button class="requestbutton">
-        <div class="buttontext">Retrieve Authorization Code</div>
-    </button>
 </div>
 <div class="requestauthcode" data-action="requestAuthorizationCode">
     <div class="frame-parent">
         <div class="form-wrapper">
-            <form
-                    class="form17"
-                    action="/profile/oauth-application-request-authorization-code"
-                    method="post"
-                    data-auth-header="xauth"
-            >
+            <form class="form17" action="/profile/oauth-application-request-authorization-code" method="post" data-auth-header="xauth">
                 <div class="inputdivbox24">
                     <div class="inputfieldwrapperbox-parent">
                         <div class="inputfieldwrapperbox18">
-                            <input class="inputfieldandtext16" type="text" />
+                            <input class="inputfieldandtext16" type="text" name="scope" value="all" tabindex="216"/>
                         </div>
                         <button class="infobutton">
-                            <img
-                                    class="infobutton-child"
-                                    alt=""
-                                    src="/assets/ellipse-6.svg"
-                            /><img
-                                    class="infobutton-item"
-                                    alt=""
-                                    src="/assets/group-334593.svg"
-                            />
+                            <img class="infobutton-child" alt="" src="/assets/ellipse-6.svg"/>
+                            <img class="infobutton-item" alt="" src="/assets/group-334593.svg"/>
                         </button>
                     </div>
                     <label class="inputlabel2">Scope</label>
@@ -92,29 +63,27 @@
                 <div class="inputdivbox2">
                     <label class="inputlabel2">Nonce</label>
                     <div class="inputfieldwrapperbox2">
-                        <input class="inputfieldandtext" type="text" />
+                        <input class="inputfieldandtext" type="text" name="nonce" tabindex="214"/>
                     </div>
                 </div>
                 <div class="form-parent">
                     <label class="inputlabel2">Client ID</label>
                     <div class="inputfieldwrapperbox2">
-                        <input class="inputfieldandtext" type="text" />
+                        <input class="inputfieldandtext" name="client_id" type="text" tabindex="213"/>
                     </div>
                 </div>
             </form>
+            <button class="requestbutton" data-call-to-action tabindex="215">
+                <div class="buttontext">Request Authorization Code</div>
+            </button>
         </div>
-        <div class="inputfieldwrapperbox4">
-            <input
-                    class="inputfieldandtext2"
-                    type="text"
-                    readonly
-                    data-dpt-cab-id
-            />
+        <div class="inputfieldwrapperbox4" tabindex="217">
+            <input class="inputfieldandtext33" type="text" readonly data-dpt-cab-id/>
+            <div class="copybutton3">
+                <div class="copylabel2" data-copy=".inputfieldandtext33">Copy</div>
+            </div>
         </div>
     </div>
-    <button class="requestbutton">
-        <div class="buttontext">Request Authorization Code</div>
-    </button>
 </div>
 <div class="packbasicauth" data-action="packBasicAuth">
     <div class="frame-parent">
@@ -123,94 +92,66 @@
                 <div class="inputdivbox2">
                     <label class="inputlabel2">Client Secret</label>
                     <div class="inputfieldwrapperbox2">
-                        <input class="inputfieldandtext" type="text" />
+                        <input class="inputfieldandtext" type="text" name="pack_client_secret" tabindex="210"/>
                     </div>
                 </div>
                 <div class="form-parent">
                     <label class="inputlabel2">Client ID</label>
                     <div class="inputfieldwrapperbox2">
-                        <input class="inputfieldandtext" type="text" />
+                        <input class="inputfieldandtext" type="text" name="pack_client_id" tabindex="209"/>
                     </div>
                 </div>
             </form>
         </div>
         <div class="inputfieldwrapperbox4">
-            <input
-                    class="inputfieldandtext31"
-                    type="text"
-                    readonly
-                    data-dpt-cab-id
-            />
+            <input class="inputfieldandtext32" name="basic_auth" type="text" readonly data-dpt-cab-id tabindex="212"/>
+            <div class="copybutton3">
+                <div class="copylabel2" data-copy=".inputfieldandtext32">Copy</div>
+            </div>
         </div>
     </div>
-    <button class="requestbutton">
+    <button class="requestbutton pack-button" tabindex="211">
         <div class="buttontext">Pack Basic Authorization</div>
     </button>
 </div>
-<div
-        class="retrievecredentials"
-        data-action="retrieveOAuthCredentials"
->
-    <div class="inputfieldwrapperbox43">
-        <input
-                class="inputfieldandtext24"
-                type="text"
-                readonly
-                data-dpt-cab-id
-        />
+<div class="retrievecredentials" data-action="retrieveOAuthCredentials">
+    <div class="inputfieldwrapperbox43 hide">
+        <input class="inputfieldandtext24" type="text" readonly data-dpt-cab-id tabindex="208"/>
     </div>
-    <form
-            class="form-parent"
-            action="/profile/retrieve-oauth-application-configuration"
-            method="post"
-            data-auth-header="xauth"
-    >
+    <form class="form-parent" action="/profile/retrieve-oauth-application-configuration" method="post" data-auth-header="xauth">
         <div class="form-parent">
             <div class="inputfieldwrapperbox2">
-                <input class="inputfieldandtext" type="text" />
+                <input class="inputfieldandtext" type="text" name="id" tabindex="206"/>
             </div>
             <label class="inputlabel2">Registration Request ID</label>
         </div>
     </form>
-    <button class="requestbutton">
+    <button class="requestbutton" data-call-to-action tabindex="207">
         <div class="buttontext">Retrieve Credentials</div>
     </button>
 </div>
 <div class="registeroauthapp" data-action="registerOAuthApplication">
     <div class="inputfieldwrapperbox45">
-        <input
-                class="inputfieldandtext41"
-                type="text"
-                readonly
-                data-dpt-cab-id
-        />
-        <div class="copybutton3">
+        <input class="inputfieldandtext41" type="text" readonly data-dpt-cab-id tabindex="204"/>
+        <div class="copybutton3" tabindex="205">
             <div class="copylabel2" data-copy=".inputfieldandtext41">Copy</div>
         </div>
     </div>
-    <form
-            class="form20"
-            action="/profile/oauth-application-register"
-            method="post"
-            data-auth-header="xauth"
-    >
+    <form class="form20" action="/profile/oauth-application-register" method="post" data-auth-header="xauth">
         <div class="inputdivbox30">
             <div class="inputfieldwrapperbox46">
-                <input class="inputfieldandtext" type="text" />
+                <input class="inputfieldandtext" type="text" name="redirect_uri" tabindex="202"/>
             </div>
-            <label class="inputlabel10"
-            ><span class="id">Redirect Uri </span
-                ><i class="id">(optional)</i></label
-            >
+            <label class="inputlabel10"><span class="id">Redirect Uri </span><i class="id">(optional)</i></label>
         </div>
         <div class="form-parent">
             <div class="inputfieldwrapperbox2">
-                <input class="inputfieldandtext" type="text" />
+                <input class="inputfieldandtext" type="text" name="title" tabindex="201"/>
             </div>
             <label class="inputlabel2">Title</label>
         </div>
     </form>
-    <button class="requestbutton">
+    <button class="requestbutton" data-call-to-action tabindex="203">
         <div class="buttontext">Register OAuth Application</div>
     </button>
 </div>

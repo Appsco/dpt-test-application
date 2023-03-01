@@ -908,7 +908,7 @@ html {
   height: 124px;
 }
 
-.inputfieldandtext31 {
+.inputfieldandtext31, .inputfieldandtext32, .inputfieldandtext33{
   border: 0;
   font-family: var(--title-1-bold);
   font-size: var(--body-1-medium-size);
@@ -1030,7 +1030,7 @@ html {
   color: var(--l00);
   text-align: left;
   display: inline-block;
-  width: 709px;
+  width: 702px;
   flex-shrink: 0;
 }
 
@@ -1765,6 +1765,7 @@ html {
   left: 18px;
   color: var(--l00);
   text-align: left;
+  width: 300px;
 }
 
 .copybutton6 {
@@ -2197,8 +2198,8 @@ html {
   padding: 0;
   background-color: transparent;
   position: absolute;
-  top: 35px;
-  left: 790px;
+  top: 46px;
+  right: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -2217,7 +2218,7 @@ html {
   position: relative;
   border-radius: var(--br-xl) 0 0 var(--br-xl);
   background-color: var(--l00);
-  width: 881px;
+  width: 1150px;
   height: 443px;
   overflow: hidden;
   max-width: 90%;

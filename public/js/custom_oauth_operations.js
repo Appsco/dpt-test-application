@@ -44,8 +44,8 @@ function registerPackButton() {
     let packButton = document.querySelector('.pack-button');
 
     packButton?.addEventListener('click', () => {
-        let clientId = document.querySelector('[name="client_id"]').value;
-        let clientSecret = document.querySelector('[name="client_secret"]').value;
+        let clientId = document.querySelector('[name="pack_client_id"]').value;
+        let clientSecret = document.querySelector('[name="pack_client_secret"]').value;
         let basicAuth = document.querySelector('[name="basic_auth"]');
 
         basicAuth.value = btoa(clientId + ':' + clientSecret);

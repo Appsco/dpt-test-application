@@ -53,9 +53,20 @@ div[class^="inputfieldwrapperbox"]:focus-within {
   border-radius: 20px;
 }
 
-
+div[class^="copybutton"] {
+  cursor: pointer;
+}
 
 button:hover {
   transform: scale(1.1);
   transition: all 0.2s ease;
+}
+
+th, td{
+  padding: 0 5px;
+}
+
+table{
+  width: 100%;
+  table-layout: fixed;
 }

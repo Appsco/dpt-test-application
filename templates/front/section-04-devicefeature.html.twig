@@ -1,64 +1,37 @@
-<div
-        class="retrieveprofiledevices1"
-        data-action="retrieveProfileDevices"
->
-    <form
-            class="form4"
-            action="/device/retrieve-profile-devices"
-            method="post"
-            data-auth-header="xauth"
-    >
-        <button class="requestbuttoninside">
-            <div class="retrieve-profile-devices">
-                Retrieve Profile Devices
-            </div>
-        </button>
+<div class="retrieveprofiledevices1" data-action="retrieveProfileDevices">
+    <form class="form4" action="/device/retrieve-profile-devices" method="post" data-auth-header="xauth">
+        <div data-dpt-cab-id></div>
     </form>
+    <button data-call-to-action class="requestbuttoninside" tabindex="406">
+        <div class="retrieve-profile-devices">
+            Retrieve Profile Devices
+        </div>
+    </button>
 </div>
-<div
-        class="requestuniqueidentifier"
-        data-action="requestUniqueIdentifier"
->
+<div class="requestuniqueidentifier" data-action="requestUniqueIdentifier">
     <div class="inputfieldwrapperbox25">
-        <input
-                class="inputfieldandtext2"
-                type="text"
-                readonly
-                data-dpt-cab-id
-        />
+        <input class="inputfieldandtext2" type="text" tabindex="405" readonly data-dpt-cab-id/>
     </div>
-    <form
-            class="form9"
-            action="device/retrieve-unique-identifier"
-            method="post"
-            data-auth-header="xauth"
-    >
-        <div class="inputfieldwrapperbox23">
-            <label class="inputlabel9">Unique Identifier Request ID</label>
-            <div class="inputfieldwrapperbox24">
-                <input class="inputfieldandtext23" type="text" />
-            </div>
+    <form class="form9" action="device/retrieve-unique-identifier" method="post" data-auth-header="xauth">
+        <label class="inputlabel9">Unique Identifier Request ID</label>
+        <div class="inputfieldwrapperbox24">
+            <input class="inputfieldandtext23" tabindex="403" name="id" type="text"/>
         </div>
     </form>
-    <button class="requestbutton">
+    <button data-call-to-action class="requestbutton" tabindex="404">
         <div class="buttontext">Request Unique Identifier</div>
     </button>
 </div>
-<div
-        class="retrieveuniqueidentifier"
-        data-action="retrieveUniqueIdentifier"
->
-    <form
-            class="form12"
-            action="/device/request-unique-identifier"
-            method="post"
-            data-auth-header="xauth"
-    >
+<div class="retrieveuniqueidentifier" data-action="retrieveUniqueIdentifier">
+    <form class="form12" action="/device/request-unique-identifier" method="post" data-auth-header="xauth">
         <div class="inputfieldwrapperbox22">
-            <input class="horizontalline9" type="text" data-dpt-cab-id />
+            <input class="horizontalline9" tabindex="401" readonly type="text" data-dpt-cab-id />
+            <button class="copybutton4" tabindex="104">
+                <div class="copylabel4" data-copy=".horizontalline9">Copy</div>
+            </button>
         </div>
     </form>
-    <button class="requestbutton10">
+    <button data-call-to-action class="requestbutton10" tabindex="402">
         <div class="buttontext">Retrieve Unique Identifier</div>
     </button>
 </div>

@@ -19,6 +19,9 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     document.querySelector('[data-action="retrieveProfileDevices"]')?.addEventListener('request.response.body', (e) => {
         let resp = e.detail;
+        if(Array.isArray(resp) && resp.length === 0){
+            return;
+        }
         let table = displayTableData(resp);
         let profile = '';
         table.querySelectorAll('tr').forEach((elem, index) => {

@@ -143,7 +143,8 @@ function displayTableData(responseFromBackend) {
         return;
     }
 
-    let container = document.querySelector('.main-content');
+    // todo remove after implementation of new UI
+    let container = document.querySelectorAll('.main-content').length === 2 ? document.querySelectorAll('.main-content')[1] : document.querySelector('.main-content');
     container.querySelectorAll('*').forEach( n => n.remove() );
 
     let table = document.createElement('table');

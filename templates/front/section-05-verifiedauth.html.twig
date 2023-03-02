@@ -1,148 +1,113 @@
 <div class="settimelimit" data-action="setVotingTimeLimit">
-    <form
-            class="form5"
-            action="/verified-authenticator/set-voting-time-limit"
-            method="post"
-            data-auth-header="xauth"
-    >
+    <form class="form5" action="/verified-authenticator/set-voting-time-limit" method="post" data-auth-header="xauth">
         <div class="inputdivbox9">
             <label class="inputlabel9">Time Limit</label>
             <div class="inputfieldwrapperbox13">
-                <input class="inputfieldandtext11" type="text" />
+                <input class="inputfieldandtext11" type="text" name="time_limit" tabindex="515"/>
             </div>
         </div>
         <div class="form-parent">
             <div class="inputfieldwrapperbox2">
-                <input class="inputfieldandtext" type="text" />
+                <input class="inputfieldandtext" type="text" name="id" tabindex="514"/>
             </div>
             <label class="inputlabel10"
-            ><span class="id">ID </span
-                ><i class="id">(optional UUID)</i></label
-            >
+            ><span class="id">ID </span>
+                <i class="id">(optional UUID)</i></label>
         </div>
     </form>
-    <button class="requestbutton">
+    <button data-call-to-action class="requestbutton" tabindex="516">
         <div class="buttontext">Set Time Limit</div>
     </button>
 </div>
 <div class="setquorumsize" data-action="setQuorumSize">
-    <form
-            class="form6"
-            action="/verified-authenticator/set-quorum-size"
-            method="post"
-            data-auth-header="xauth"
-    >
+    <form class="form6" action="/verified-authenticator/set-quorum-size" method="post" data-auth-header="xauth">
         <div class="inputdivbox11">
             <div class="inputfieldwrapperbox15">
-                <input class="inputfieldandtext13" type="text" />
+                <input class="inputfieldandtext13" type="text" name="size" tabindex="512"/>
             </div>
             <label class="inputlabel2">Size</label>
         </div>
         <div class="form-parent">
             <div class="inputfieldwrapperbox2">
-                <input class="inputfieldandtext" type="text" />
+                <input class="inputfieldandtext" type="text" name="id" tabindex="511"/>
             </div>
-            <label class="inputlabel10"
-            ><span class="id">ID </span
-                ><i class="id">(optional UUID)</i></label
-            >
+            <label class="inputlabel10">
+                <span class="id">ID </span>
+                <i class="id">(optional UUID)</i>
+            </label>
         </div>
     </form>
-    <button class="requestbutton">
+    <button data-call-to-action class="requestbutton" tabindex="513">
         <div class="buttontext">Set Quorum Size</div>
     </button>
 </div>
 <div class="setquorumstrategy" data-action="SetQuorumStrategy">
-    <button class="requestbutton">
-        <div class="buttontext">Set Quorum Strategy</div>
-    </button>
-    <form
-            class="form7"
-            action="/verified-authenticator/set-quorum-strategy"
-            data-auth-header="xauth"
-    >
+    <form class="form7" action="/verified-authenticator/set-quorum-strategy" method="post" data-auth-header="xauth">
         <img class="infobutton-icon" alt="" src="/assets/infobutton.svg" />
         <div class="inputdivbox13">
             <div class="inputfieldwrapperbox15">
-                <input class="inputfieldandtext15" type="text" />
+                <input class="inputfieldandtext15" type="text" name="strategy_params" placeholder="percentage required" tabindex="509"/>
             </div>
             <label class="inputlabel2">Strategy Parametars</label>
         </div>
         <div class="inputdivbox14">
             <label class="inputlabel9">Strategy</label>
             <div class="inputfieldwrapperbox18">
-                <input class="inputfieldandtext16" type="text" />
+                <input class="inputfieldandtext16" type="text" name="strategy" placeholder="consensus" tabindex="508"/>
             </div>
         </div>
         <div class="form-parent">
             <div class="inputfieldwrapperbox2">
-                <input class="inputfieldandtext" type="text" />
+                <input class="inputfieldandtext" type="text" name="id" tabindex="507"/>
             </div>
-            <label class="inputlabel10"
-            ><span class="id">ID </span
-                ><i class="id">(optional UUID)</i></label
-            >
+            <label class="inputlabel10">
+                <span class="id">ID </span>
+                <i class="id">(optional UUID)</i>
+            </label>
         </div>
     </form>
+    <button data-call-to-action class="requestbutton" tabindex="510">
+        <div class="buttontext">Set Quorum Strategy</div>
+    </button>
 </div>
-<div
-        class="setmaximumvotingattempts"
-        data-action="setMaximumVotingAttempts"
->
-    <form
-            class="form6"
-            action="/verified-authenticator/set-maximum-voting-attempts"
-            method="post"
-            data-auth-header="xauth"
-    >
+<div class="setmaximumvotingattempts" data-action="setMaximumVotingAttempts">
+    <form class="form6" action="/verified-authenticator/set-maximum-voting-attempts" method="post" data-auth-header="xauth">
         <div class="inputdivbox11">
             <div class="inputfieldwrapperbox15">
-                <input class="inputfieldandtext18" type="text" />
+                <input class="inputfieldandtext18" type="text" name="number_of_attempts" tabindex="505"/>
             </div>
             <label class="inputlabel2">Number Of Atempts</label>
         </div>
         <div class="form-parent">
             <div class="inputfieldwrapperbox2">
-                <input class="inputfieldandtext" type="text" />
+                <input class="inputfieldandtext" type="text" name="id" tabindex="504"/>
             </div>
-            <label class="inputlabel10"
-            ><span class="id">ID </span
-                ><i class="id">(optional UUID)</i></label
-            >
+            <label class="inputlabel10">
+                <span class="id">ID</span>
+                <i class="id">(optional UUID)</i>
+            </label>
         </div>
     </form>
-    <button class="requestbutton">
+    <button data-call-to-action class="requestbutton" tabindex="506">
         <div class="buttontext">Set Maximum Voting Atempts</div>
     </button>
 </div>
 <div class="registerauthenticator" data-action="verifyAuthenticator">
     <div class="inputdivbox18">
         <div class="inputfieldwrapperbox22">
-            <input
-                    class="inputfieldandtext20"
-                    type="text"
-                    readonly
-                    data-dpt-cab-id
-            />
+            <input class="inputfieldandtext20" type="text" readonly data-dpt-cab-id tabindex="503"/>
         </div>
         <div class="copybutton2">
             <div class="copylabel2" data-copy=".inputfieldandtext20">Copy</div>
         </div>
     </div>
-    <form
-            class="form9"
-            action="/verified-authenticator/register"
-            method="post"
-            data-auth-header="xauth"
-    >
-        <div class="inputfieldwrapperbox23">
-            <label class="inputlabel9">Device Unique Identifier</label>
-            <div class="inputfieldwrapperbox24">
-                <input class="inputfieldandtext21" type="text" />
-            </div>
+    <form class="form9" action="/verified-authenticator/register" method="post" data-auth-header="xauth">
+        <label class="inputlabel9">Device Unique Identifier</label>
+        <div class="inputfieldwrapperbox24">
+            <input class="inputfieldandtext21" type="text" name="device_unique_identifier" tabindex="501"/>
         </div>
     </form>
-    <button class="requestbutton">
+    <button data-call-to-action class="requestbutton" tabindex="502">
         <div class="buttontext">Register Authenticator</div>
     </button>
 </div>

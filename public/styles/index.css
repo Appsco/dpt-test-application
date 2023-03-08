@@ -176,8 +176,9 @@ html {
   left: 0;
 }
 
-.exchangedatafortoken,
-.poolsection {
+.exchangedatafortokenhttp,
+.poolsection,
+.exchangeDataForToken{
   position: absolute;
   top: 18px;
   left: 48px;
@@ -185,8 +186,22 @@ html {
   height: 199px;
 }
 
-.exchangedatafortoken {
+.exchangedatafortokenhttp {
   top: 523px;
+  left: 21px;
+  height: 124px;
+}
+
+.retrievetemporarydatatoken{
+  left: 21px;
+  position: absolute;
+  top:347px;
+  width: 1200px;
+  height: 199px;
+}
+
+.exchangeDataForToken {
+  top: 710px;
   left: 21px;
   height: 124px;
 }
@@ -214,7 +229,7 @@ html {
   justify-content: center;
 }
 
-.exchangedatafortokenoverhttp {
+.retrieveTemporaryDataToken {
   position: absolute;
   top: 348px;
   left: 21px;
@@ -261,7 +276,8 @@ html {
 
 .form4,
 .requestbuttoninside,
-.retrieveprofiledevices {
+.retrieveprofiledevices,
+.listAuthApplications{
   position: absolute;
   top: 0;
   left: 0;
@@ -274,9 +290,15 @@ html {
   left: 21px;
 }
 
+.listAuthApplications{
+  top: 1200px;
+  left: 0;
+}
+
 .horizontalline1,
 .horizontalline2,
-.horizontalline3 {
+.horizontalline3,
+.horizontalline29 {
   position: absolute;
   top: 498.5px;
   left: 20.5px;
@@ -293,6 +315,10 @@ html {
 
 .horizontalline3 {
   top: 148.5px;
+}
+
+.horizontalline29{
+  top: 680px;
 }
 
 .sectionheadertitle1 {
@@ -643,7 +669,9 @@ html {
 }
 
 .form9,
-.registerauthenticator {
+.registerauthenticator,
+.retrieveStrategy,
+.listVerifiedAuthenticators{
   position: absolute;
   top: 0;
   left: 0;
@@ -651,12 +679,17 @@ html {
   height: 64px;
 }
 
-.registerauthenticator {
+.registerauthenticator,
+.retrieveStrategy{
   top: 86px;
   width: 1200px;
   height: 124px;
   text-align: center;
   color: var(--main-pacific);
+}
+
+.listVerifiedAuthenticators{
+  top: 158px;
 }
 
 .horizontalline5,
@@ -703,12 +736,20 @@ html {
 }
 
 .inputfieldwrapperbox25,
-.retrieveprofiledevices1 {
+.retrieveprofiledevices1{
   position: absolute;
   top: 354px;
   left: 0;
   width: 285px;
   height: 40px;
+}
+
+.verifyAuthenticator{
+  position: absolute;
+  top: 440px;
+  left: 0;
+  width: 1200px;
+  height: 123px;
 }
 
 .inputfieldwrapperbox25 {
@@ -793,7 +834,9 @@ html {
 }
 
 .horizontalline10,
-.horizontalline11 {
+.horizontalline11,
+.horizontalline31,
+.horizontalline32 {
   position: absolute;
   top: 329.5px;
   left: -0.5px;
@@ -805,6 +848,14 @@ html {
 
 .horizontalline11 {
   top: 154.5px;
+}
+
+.horizontalline31 {
+  top: 138.5px;
+}
+
+.horizontalline32 {
+  top: 217.5px;
 }
 
 .sectionheadertitle4 {
@@ -908,7 +959,15 @@ html {
   height: 124px;
 }
 
-.inputfieldandtext31, .inputfieldandtext32, .inputfieldandtext33{
+.retrieveTemporaryDataToken {
+  position: absolute;
+  top: 350px;
+  left: 0;
+  width: 1200px;
+  height: 124px;
+}
+
+.inputfieldandtext31, .inputfieldandtext32, .inputfieldandtext33, .inputfieldandtext34, .inputfieldandtext35{
   border: 0;
   font-family: var(--title-1-bold);
   font-size: var(--body-1-medium-size);
@@ -1100,7 +1159,8 @@ html {
 .horizontalline17,
 .horizontalline18,
 .horizontalline19,
-.horizontalline20 {
+.horizontalline20,
+.horizontalline12 {
   position: absolute;
   top: 1025.5px;
   left: -0.5px;
@@ -1141,6 +1201,10 @@ html {
   left: 1.5px;
 }
 
+.horizontalline12{
+  top: 412.5px;
+}
+
 .oauthsection,
 .sectionheadertitle6 {
   position: absolute;
@@ -1175,6 +1239,7 @@ html {
 }
 
 .inputfieldwrapperbox48,
+.inputfieldwrapperbox49,
 .requestbutton19 {
   position: absolute;
   border-radius: var(--br-lg);
@@ -1194,6 +1259,16 @@ html {
   justify-content: flex-start;
 }
 
+.inputfieldwrapperbox49 {
+  top: 26px;
+  left: 0;
+  background-color: var(--dark-blue-900);
+  width: 793px;
+  padding: var(--padding-md) var(--padding-lg);
+  justify-content: flex-start;
+}
+
+
 .requestbutton19 {
   cursor: pointer;
   border: 0;
@@ -1210,6 +1285,22 @@ html {
 .retriveauthtoken {
   position: absolute;
   top: 783px;
+  left: 6px;
+  width: 1200px;
+  height: 126px;
+}
+
+.reauthorizeauthtoken {
+  position: absolute;
+  top: 983px;
+  left: 6px;
+  width: 1200px;
+  height: 126px;
+}
+
+.revokeAuthToken {
+  position: absolute;
+  top: 1200px;
   left: 6px;
   width: 1200px;
   height: 126px;
@@ -1415,7 +1506,10 @@ html {
 .horizontalline22,
 .horizontalline23,
 .horizontalline24,
-.horizontalline25 {
+.horizontalline25,
+.horizontalline26,
+.horizontalline27,
+.horizontalline28 {
   position: absolute;
   top: 762.5px;
   left: -0.5px;
@@ -1450,13 +1544,26 @@ html {
   left: 5.5px;
 }
 
+.horizontalline26{
+  top: 960px;
+}
+
+.horizontalline27{
+  top: 1195px;
+}
+
+
+.horizontalline28{
+  top: 1170px;
+}
+
 .bodyofsections,
 .profilesection {
   position: absolute;
   top: 18px;
   left: 34px;
   width: 1208px;
-  height: 909px;
+  height: 1109px;
 }
 
 .bodyofsections {
@@ -1997,7 +2104,7 @@ html {
   position: relative;
   background-color: var(--dark-blue-900);
   width: 100%;
-  height: 1700px;
+  height: 1850px;
   overflow: hidden;
   text-align: left;
   font-size: var(--body-3-medium-size);

@@ -24,8 +24,9 @@ function configureMQ(DPTMQURL) {
                 headers['x-dpt-token'] = document.querySelector('header [name="xauth"]').value;
                 headers['x-dpt-token-space'] = parentNode.querySelector('[name="x-dpt-token-space"]').value;
                 let body = parentNode.querySelector('[name="data-token"]').value;
+                let queue = parentNode.querySelector('form').dataset.queue;
 
-                client.send('/queue/datatokenexchange', headers, JSON.stringify(body));
+                client.send(queue, headers, JSON.stringify(body));
             })
         });
     };

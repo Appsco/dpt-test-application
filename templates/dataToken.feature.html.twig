@@ -44,7 +44,7 @@
     <div data-action="exchangeDataForToken">
         <div>
             <button data-mq-call-to-action>Exchange Data For Token</button>
-            <form action="/data-token/retrieve-temporary-data-token/" method="get" data-auth-header="xauth">
+            <form method="get" data-auth-header="xauth" data-queue="/queue/datatokenexchange">
                 <label>Temporary Token</label>
                 <input type="text" name="x-dpt-token-space" value=""/>
                 <label>Data</label>

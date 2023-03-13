@@ -135,16 +135,18 @@ function displayTableData(responseFromBackend) {
 
     let response = [];
 
+    // todo remove after implementation of new UI
+    let container = document.querySelectorAll('.main-content').length === 2 ? document.querySelectorAll('.main-content')[1] : document.querySelector('.main-content');
+
     if (Array.isArray(responseFromBackend) && responseFromBackend.length) {
         response = responseFromBackend;
     } else if (responseFromBackend.constructor === Object && Object.keys(responseFromBackend).length) {
         response.push(responseFromBackend);
     } else {
+        container.innerHTML = "";
         return;
     }
 
-    // todo remove after implementation of new UI
-    let container = document.querySelectorAll('.main-content').length === 2 ? document.querySelectorAll('.main-content')[1] : document.querySelector('.main-content');
     container.querySelectorAll('*').forEach( n => n.remove() );
 
     let table = document.createElement('table');

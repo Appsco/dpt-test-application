@@ -2326,8 +2326,8 @@ html {
   border-radius: var(--br-xl) 0 0 var(--br-xl);
   background-color: var(--l00);
   width: 1150px;
-  height: 443px;
-  overflow: hidden;
+  min-height: 60%;
+  overflow: auto;
   max-width: 90%;
   max-height: 90%;
   text-align: left;

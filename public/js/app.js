@@ -63,25 +63,22 @@ function appConfigured(DPTURL) {
             responseContainer.innerHTML = '\n\r\n\r\t\t#########################################\n\r' + responseContainer.innerHTML;
             responseContainer.innerHTML = '\n\r' + JSON.stringify({url: executeFormActionUrl}, null, 2) + responseContainer.innerHTML;
             fetch(executeFormActionUrl, options).then((r) => {
-                //check if request is not OPTIONS type
-                if (r.headers.has("X-Dpt-Cab-Id")) {
-                    if(r.status >= 300) {
-                        r.json().then(r => {
-                            responseContainer.innerHTML = '\n\r' + JSON.stringify(r, null, 2) + responseContainer.innerHTML;
-                        })
-                        parentNode.classList.add('blink-red');
-                        setTimeout(() => {parentNode.classList.remove('blink-red');}, 300);
-                        return;
-                    }
-                    let id = r.headers.get('X-Dpt-Cab-Id');
-                    parentNode.querySelector('[data-dpt-cab-id]').value = id;
-                    checkRequestStatus(DPTURL, id, parentNode);
-
-                    r.json().then(resp => {
-                        parentNode.dispatchEvent(new CustomEvent('request.response.body', {detail: resp}))
-                        displayResponse(parentNode, resp);
+                if(r.status >= 300) {
+                    r.json().then(r => {
+                        responseContainer.innerHTML = '\n\r' + JSON.stringify(r, null, 2) + responseContainer.innerHTML;
                     })
+                    parentNode.classList.add('blink-red');
+                    setTimeout(() => {parentNode.classList.remove('blink-red');}, 300);
+                    return;
                 }
+                let id = r.headers.get('X-Dpt-Cab-Id');
+                parentNode.querySelector('[data-dpt-cab-id]').value = id;
+                checkRequestStatus(DPTURL, id, parentNode);
+
+                r.json().then(resp => {
+                    parentNode.dispatchEvent(new CustomEvent('request.response.body', {detail: resp}))
+                    displayResponse(parentNode, resp);
+                })
             })
         })
     });

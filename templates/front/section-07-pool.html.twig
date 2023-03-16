@@ -1,16 +1,11 @@
 <div class="createpool" data-action="submitPool">
     <div>
-        <button class="requestbutton">
-            <div class="buttontext" data-call-to-action tabindex="73">Create Pool</div>
+        <button class="requestbutton" data-call-to-action tabindex="73">
+            <div class="buttontext">Create Pool</div>
         </button>
         <div class="frame-parent">
             <div class="form-wrapper">
-                <form
-                        class="form"
-                        action="/voting/create"
-                        method="post"
-                        data-auth-header="basic"
-                >
+                <form class="form" action="/voting/create" method="post" data-auth-header="basic">
                     <div class="inputdivbox2">
                         <div class="inputfieldwrapperbox2">
                             <input class="inputfieldandtext" type="text" name="question" tabindex="72"/>
@@ -26,12 +21,7 @@
                 </form>
             </div>
             <div class="inputfieldwrapperbox4">
-                <input
-                        class="inputfieldandtext2"
-                        type="text"
-                        readonly
-                        data-dpt-cab-id
-                />
+                <input class="inputfieldandtext2" type="text" readonly data-dpt-cab-id/>
             </div>
         </div>
     </div>

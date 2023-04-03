@@ -1,5 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
-    document.getElementById("popupframeButton")?.addEventListener("click", function (e) {
+    [...document.getElementsByClassName('popupframeButton')].forEach((element) => {
+        element.addEventListener("click", function (e) {
             let popup = e.currentTarget.parentNode;
 
             function isOverlay(node) {
@@ -16,29 +17,20 @@ window.addEventListener('DOMContentLoaded', () => {
             if (isOverlay(popup)) {
                 popup.style.display = "none";
             }
+        });
+    });
+
+    let infoPopup = document.getElementById("infoModalPopup");
+    [...document.getElementsByClassName('infoModalOpenButton')].forEach((element) => {
+        element.addEventListener('click', () => {
+            showHideModal(infoPopup);
+            insertDescription(element);
+        });
     });
 
     document.getElementById("modalOpenButton")?.addEventListener('click', () => {
         let popup = document.getElementById("modalPopup");
-        if (!popup) return;
-        let popupStyle = popup.style;
-        if (popupStyle) {
-            popupStyle.display = "flex";
-            popupStyle.zIndex = 100;
-            popupStyle.backgroundColor = "rgba(113, 113, 113, 0.3)";
-            popupStyle.alignItems = "center";
-            popupStyle.justifyContent = "center";
-        }
-        popup.setAttribute("closable", "");
-
-        let onClick =
-            popup.onClick ||
-            function (e) {
-                if (e.target === popup && popup.hasAttribute("closable")) {
-                    popupStyle.display = "none";
-                }
-            };
-        popup.addEventListener("click", onClick);
+        showHideModal(popup);
     });
 
     document.querySelectorAll('[data-open-section]').forEach(node => {
@@ -78,3 +70,33 @@ window.addEventListener('DOMContentLoaded', () => {
         })
     })
 });
+
+function showHideModal(popup) {
+    if (!popup) return;
+    let popupStyle = popup.style;
+    if (popupStyle) {
+        popupStyle.display = "flex";
+        popupStyle.zIndex = 100;
+        popupStyle.backgroundColor = "rgba(113, 113, 113, 0.3)";
+        popupStyle.alignItems = "center";
+        popupStyle.justifyContent = "center";
+    }
+    popup.setAttribute("closable", "");
+
+    let onClick =
+        popup.onClick ||
+        function (e) {
+            if (e.target === popup && popup.hasAttribute("closable")) {
+                popupStyle.display = "none";
+            }
+        };
+    popup.addEventListener("click", onClick);
+}
+
+function insertDescription(element){
+    let descriptionElement = element.querySelector('[data-description]');
+    let description = descriptionElement.innerHTML;
+
+    let container = document.querySelectorAll('.info-modal-content')[0];
+    container.innerHTML  = description;
+}

@@ -5,8 +5,21 @@
         </div>
     </form>
     <button class="requestbutton19" data-call-to-action tabindex="123">
-        <div class="buttontext">Revoke auth token</div>
+        <div class="buttontext">Revoke Auth Token</div>
     </button>
+    <div class="infoModalOpenButton">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Revoke Auth Token</h2>
+            <p>User attempts to revoke the authorization token.</p>
+            <p>Upon successful operation event fires AuthorizationTokenRevoked.</p>
+            <p>No voting is occurred for this action.</p>
+            <p>Revoke Authorization Token command revokes the current token. In a case of success, AuthorizationTokenRevoked is raised. In a case of an error appropriate exception is raised.</p>
+            <div style="text-align: center; width: 100%;">
+                <img src="/media/profile/revoke_auth_token.png">
+            </div>
+        </div>
+    </div>
 </div>
 <div class="reauthorizeauthtoken" data-action="reauthorizeAuthToken">
     <div class="inputfieldwrapperbox48">
@@ -21,8 +34,19 @@
         </div>
     </form>
     <button class="requestbutton19" data-call-to-action tabindex="120">
-        <div class="buttontext">Reauthorize auth token</div>
+        <div class="buttontext">Reauthorize Auth Token</div>
     </button>
+    <div class="infoModalOpenButton">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Reauthorize Auth Token</h2>
+            <p>User attempts to reauthorize the token, in order to extend a token's validity time.</p>
+            <p>This issues an event that reauthorization is attempted. In case of error occur appropriate exception is raised.</p>
+            <div style="text-align: center; width: 100%;">
+                <img src="/media/profile/reauthorize_auth_token.png">
+            </div>
+        </div>
+    </div>
 </div>
 <div class="retriveauthtoken" data-action="retrieveAuthToken">
     <div class="inputfieldwrapperbox48">
@@ -42,6 +66,16 @@
     <button class="requestbutton19" data-call-to-action tabindex="117">
         <div class="buttontext">Retrieve Authorization Token</div>
     </button>
+    <div class="infoModalOpenButton">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Retrieve Authorization Token</h2>
+            <p>System responds with authorization token. This call can be issued only once. In case it fails for any reason, entire process should be repeated.</p>
+            <div style="text-align: center; width: 100%;">
+                <img src="/media/profile/retrieve_authorization_token.png">
+            </div>
+        </div>
+    </div>
 </div>
 <div class="requestauthtoken" data-action="requestAuthToken">
     <div class="inputfieldwrapperbox43">
@@ -71,6 +105,18 @@
     <button class="requestbutton" data-call-to-action tabindex="113">
         <div class="buttontext">Request Authorization Token</div>
     </button>
+    <div class="infoModalOpenButton">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Request Authorization Token</h2>
+            <p>User attempts to retrieve authorization token by providing temporary token and scope.</p>
+            <p>Request Authorization Token command accepts temporary data token and scope that token should be issued for.</p>
+            <p>Handler process the information and on success issues AuthorizationTokenApproved event. In a case of error, appropriate exception should be raised.</p>
+            <div style="text-align: center; width: 100%;">
+                <img src="/media/profile/request_authorization_token.png">
+            </div>
+        </div>
+    </div>
 </div>
 <div class="retrivetemptoken" data-action="retrieveTempToken">
     <div class="inputfieldwrapperbox43 hide">
@@ -87,6 +133,17 @@
     <button class="requestbutton" data-call-to-action tabindex="111">
         <div class="buttontext">Retrieve Temporary Token</div>
     </button>
+    <div class="infoModalOpenButton">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Retrieve Temporary Token</h2>
+            <p>Temporary authentication token should have uuid, token and time to live.</p>
+            <p>System responds with temporary authentication token which is later used to be exchanged for more permanent scoped authorization token.</p>
+            <div style="text-align: center; width: 100%;">
+                <img src="/media/profile/retrieve_temporary_auth_token.png">
+            </div>
+        </div>
+    </div>
 </div>
 <div class="attemptauth" data-action="attemptAuth">
     <div class="inputfieldwrapperbox43">
@@ -112,6 +169,20 @@
     <button class="requestbutton" data-call-to-action tabindex="107">
         <div class="buttontext">Attempt Authentication</div>
     </button>
+    <div class="infoModalOpenButton">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Attempt Authentication</h2>
+            <p>User attempts to authenticate by providing username and password.</p>
+            <p>In a case request is successful AuthenticationAttempted event is fired. In case of an error appropriate exception is raised.</p>
+            <p>Purpose of this operation is to retrieve the temporary token which is later exchanged for a scoped token.</p>
+            <p>Attempt Authentication command receives username and password.</p>
+            <p>Handler checks against the username and password and if ok return response.</p>
+            <div style="text-align: center; width: 100%;">
+                <img src="/media/profile/attempt_authentication.png">
+            </div>
+        </div>
+    </div>
 </div>
 <div class="register" data-action="register">
     <div class="inputfieldwrapperbox45">
@@ -137,8 +208,33 @@
     <button class="requestbutton" data-call-to-action tabindex="102">
         <div class="buttontext">Register User</div>
     </button>
+    <div class="infoModalOpenButton">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Register Profile</h2>
+            <p>Register Profile receives username and password.</p>
+            <p>Handler will proceed on trying to register profile with given information.</p>
+            <p>On success it raises ProfileRegistrationAttempted event.</p>
+            <p>In cases where it fails either to already registered username or some other errors system raises the appropriate error.</p>
+            <p>Response of the action is a command id that can be used to track the request status.</p>
+            <div style="text-align: center; width: 100%;">
+                <img src="/media/profile/register_profile.png">
+            </div>
+        </div>
+    </div>
 </div>
 <b class="sectionheadertitle7">Profile Feature</b>
+<div class="infoModalOpenButton mainSection">
+    <i class="bi bi-book"></i>
+    <div data-description class="hide">
+        <h2>Profile Feature</h2>
+        <p>Profile represent an outside user of the DPT-CAB. It can be and end client, application or other (device).</p>
+        <p>End client represents end user that wishes to secure the data. It is a browser client or mobile application, while application server would represent an application that wishes to keep the encrypted data.</p>
+        <p>Application represents system that wishes to exchange its data for the tokenized version of it.</p>
+        <p>Other represents all other systems that would just like to exchange the data for data tokens.</p>
+        <p>Profile is the basic model for the DPT-CAB and all other features are relying on the profile.</p>
+    </div>
+</div>
 <div class="horizontalline21"></div>
 <div class="horizontalline22"></div>
 <div class="horizontalline23"></div>

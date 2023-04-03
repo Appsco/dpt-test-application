@@ -5,6 +5,17 @@
     <button data-call-to-action class="requestbuttoninside" tabindex="305">
         <div class="retrieve-profile-devices">Retrieve Public Key</div>
     </button>
+    <div class="infoModalOpenButton listAction">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Retrieve Public Key</h2>
+            <p>Anyone is able to retrieve the public key for the user, for the purpose of encryption and communication.</p>
+            <p>Handler accepts the profile identifier for which the public key is to be returned for.</p>
+            <div style="text-align: center; width: 100%;">
+                <img src="/media/public_key/retrieve_public_key.png">
+            </div>
+        </div>
+    </div>
 </div>
 <div class="registerpublickey" data-action="registerPublicKey">
     <div class="inputfieldwrapperbox25" tabindex="303">
@@ -19,7 +30,33 @@
     <button data-call-to-action class="requestbutton" tabindex="302">
         <div class="buttontext">Register Public Key</div>
     </button>
+    <div class="infoModalOpenButton">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Register Public Key</h2>
+            <p>Once profile is registered it must be able to add its public key to the central system for the further usage.</p>
+            <p>Public and private keys are used for the data encryption.</p>
+            <div style="text-align: center; width: 100%;">
+                <img src="/media/public_key/register_public_key.png">
+            </div>
+        </div>
+    </div>
 </div>
 <div class="horizontalline13"></div>
 <div class="horizontalline"></div>
 <b class="sectionheadertitle5">Public Key</b>
+<div class="infoModalOpenButton mainSection3">
+    <i class="bi bi-book"></i>
+    <div data-description class="hide">
+        <h2>Public Key</h2>
+        <p>Data Protection features public key storage. The users, through their apps, will generate public/private key pairs and provide the public key to CAB. The keys are used for security-related operations, like encrypting, decrypting, signature managing, hashing, and verifying. For the purpose of central authorization body, CPT Toll CAB stores the user public key.
+        </p>
+        <p>The public key must be provided in the proper format, ed25519 format, in order to be validated and stored.
+        Public/private key pairs should be created with the Libsodium library. Programming languages have their library implementation and those should be used(PHP, Goland, JS version of the library).
+        </p>
+        <p>The public key is represented in a hexadecimal numbering system, with a length of 200 characters and 100 bytes in total.</p>
+        <p>It consists signed key + cryptographic hash.</p>
+        <p>Signed key is in ed25519 format. Its first 4 bytes are reserved for the version number, following 32 bytes carry the key(x25519 format).</p>
+        <p>Cryptographic hash is generated with the signed key and has a length of 64 bytes. For example, with the methods: crypto_generichash() in JS, and sodium_crypto_generichash() in PHP.</p>
+    </div>
+</div>

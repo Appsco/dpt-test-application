@@ -10,15 +10,26 @@
             <div class="inputfieldwrapperbox2">
                 <input class="inputfieldandtext" type="text" name="id" tabindex="514"/>
             </div>
-            <label class="inputlabel10"
-            ><span class="id">ID </span>
-                <i class="id">(optional UUID)</i></label>
+            <label class="inputlabel10">
+                <span class="id">ID </span>
+                <i class="id">(optional UUID)</i>
+            </label>
         </div>
         <div data-dpt-cab-id=""></div>
     </form>
     <button data-call-to-action class="requestbutton" tabindex="516">
         <div class="buttontext">Set Time Limit</div>
     </button>
+    <div class="infoModalOpenButton leftOfButton">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Set Time Limit</h2>
+            <p>Profile is able to set the voting time limit and that information is stored in voting strategy.</p>
+            <div style="text-align: center; width: 100%;">
+                <img src="/media/verified_authenticator/time_limit.png">
+            </div>
+        </div>
+    </div>
 </div>
 <div class="setquorumsize" data-action="setQuorumSize">
     <form class="form6" action="/verified-authenticator/set-quorum-size" method="post" data-auth-header="xauth">
@@ -42,6 +53,16 @@
     <button data-call-to-action class="requestbutton" tabindex="513">
         <div class="buttontext">Set Quorum Size</div>
     </button>
+    <div class="infoModalOpenButton leftOfButton">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Set Quorum Size</h2>
+            <p>Profile is able to set the quorum size and that information is stored in voting strategy.</p>
+            <div style="text-align: center; width: 100%;">
+                <img src="/media/verified_authenticator/quorum_size.png">
+            </div>
+        </div>
+    </div>
 </div>
 <div class="setquorumstrategy" data-action="SetQuorumStrategy">
     <form class="form7" action="/verified-authenticator/set-quorum-strategy" method="post" data-auth-header="xauth">
@@ -55,7 +76,11 @@
         <div class="inputdivbox14">
             <label class="inputlabel9">Strategy</label>
             <div class="inputfieldwrapperbox18">
-                <input class="inputfieldandtext16" type="text" name="strategy" placeholder="consensus" tabindex="508"/>
+                <select class="select16" name="strategy" tabindex="508">
+                    <option value="consensus">consensus</option>
+                    <option value="affirmative">affirmative</option>
+                    <option value="minimum_percentage">minimum_percentage</option>
+                </select>
             </div>
         </div>
         <div class="form-parent">
@@ -72,6 +97,16 @@
     <button data-call-to-action class="requestbutton" tabindex="510">
         <div class="buttontext">Set Quorum Strategy</div>
     </button>
+    <div class="infoModalOpenButton leftOfButton">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Set Quorum Strategy</h2>
+            <p>Profile is able to set the quorum strategy and that information is stored in voting strategy.</p>
+            <div style="text-align: center; width: 100%;">
+                <img src="/media/verified_authenticator/quorum_strategy.png">
+            </div>
+        </div>
+    </div>
 </div>
 <div class="setmaximumvotingattempts" data-action="setMaximumVotingAttempts">
     <form class="form6" action="/verified-authenticator/set-maximum-voting-attempts" method="post" data-auth-header="xauth">
@@ -95,16 +130,16 @@
     <button data-call-to-action class="requestbutton" tabindex="506">
         <div class="buttontext">Set Maximum Voting Atempts</div>
     </button>
-</div>
-<div class="retrieveStrategy" data-action="retrieveStrategy">
-    <form class="form4" action="/verified-authenticator/retrieve-strategy" method="get" data-auth-header="xauth">
-        <div data-dpt-cab-id=""></div>
-    </form>
-    <button data-call-to-action="" class="requestbuttoninside">
-        <div class="retrieve-profile-devices">
-            Retrieve Strategy
+    <div class="infoModalOpenButton leftOfButton">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Set Maximum Voting Attempts</h2>
+            <p>Profile is able to set the maximum voting attempts and that information is stored in voting strategy.</p>
+            <div style="text-align: center; width: 100%;">
+                <img src="/media/verified_authenticator/max_voting_attempts.png">
+            </div>
         </div>
-    </button>
+    </div>
 </div>
 <div class="listVerifiedAuthenticators" data-action="listVerifiedAuthenticators">
     <form class="form4" action="/verified-authenticator/list-verified-authenticator" method="get" data-auth-header="xauth">
@@ -115,6 +150,34 @@
             List Verified Authenticators
         </div>
     </button>
+    <div class="infoModalOpenButton listAction">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>List Verified Authenticators</h2>
+            <p>User can list all verified authenticators. System returns a list of profile devices that are approved as authenticators.</p>
+        </div>
+    </div>
+</div>
+<div class="retrieveStrategy" data-action="retrieveStrategy">
+    <form class="form4" action="/verified-authenticator/retrieve-strategy" method="get" data-auth-header="xauth">
+        <div data-dpt-cab-id=""></div>
+    </form>
+    <button data-call-to-action="" class="requestbuttoninside">
+        <div class="retrieve-profile-devices">
+            Retrieve Strategy
+        </div>
+    </button>
+    <div class="infoModalOpenButton listAction">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Retrieve Strategy</h2>
+            <p>The strategy by which authenticators will vote is present. The strategies, such as: affirmative, consensus, unanimous and are handled within voting system and authenticators responses. since authenticators. Strategies can bring a voting result based on, for an example: minimum and maximum votes. Or, the quorum strategy request can receive minimum and maximum percentage authenticator votes.</p>
+            <p>List of available strategies is:</p>
+            <p>affirmative (at least one votes yes)</p>
+            <p>consensus (majority is reached)</p>
+            <p>unanimous(all vote yes)</p>
+        </div>
+    </div>
 </div>
 <div class="horizontalline31"></div>
 <div class="horizontalline32"></div>
@@ -123,4 +186,22 @@
 <div class="horizontalline7"></div>
 <div class="horizontalline"></div>
 <b class="sectionheadertitle2">Voting Configuration</b>
+<div class="infoModalOpenButton mainSection5">
+    <i class="bi bi-book"></i>
+    <div data-description class="hide">
+        <h2>Voting Configuration</h2>
+        <p>The device can be any machine that has Data Protection Tool Authenticator installed. Each device is connected to the Profile. Devices are distinguished by name and type (mobile, desktop, server, watch, etc.). Name is used to better recognize the device in question while the type is used in order to determine to which software the communication is established.</p>
+        <p>Before registering a device unique token should be generated. This token is to be used as an access point for obtaining OAuth credentials which later can be used to communicate with the system.</p>
+        <p>Profile requests a unique identifier for a device. Once the unique identifier is confirmed, the profile will create an OAuth application. The profile should obtain the access token and save it on the device. To distinguish device applications, the OAuth application name should be linked with the device name or unique id.</p>
+    </div>
+</div>
 <b class="sectionheadertitle3">Verified Authenticator</b>
+<div class="infoModalOpenButton mainSection6">
+    <i class="bi bi-book"></i>
+    <div data-description class="hide">
+        <h2>Verified Authenticator</h2>
+        <p>The device can be any machine that has Data Protection Tool Authenticator installed. Each device is connected to the Profile. Devices are distinguished by name and type (mobile, desktop, server, watch, etc.). Name is used to better recognize the device in question while the type is used in order to determine to which software the communication is established.</p>
+        <p>Before registering a device unique token should be generated. This token is to be used as an access point for obtaining OAuth credentials which later can be used to communicate with the system.</p>
+        <p>Profile requests a unique identifier for a device. Once the unique identifier is confirmed, the profile will create an OAuth application. The profile should obtain the access token and save it on the device. To distinguish device applications, the OAuth application name should be linked with the device name or unique id.</p>
+    </div>
+</div>

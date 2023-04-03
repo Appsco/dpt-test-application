@@ -20,6 +20,18 @@
             </button>
         </div>
     </div>
+    <div class="infoModalOpenButton">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Obtain Access Token</h2>
+            <p>Upon retrieving authorization code users obtains the token by exchanging authorization code and client_secret for the token.</p>
+            <p>Consider here that client secret is hashed with nonce, thus hiding the actual secret from the protocol.</p>
+            <p>Token can be exchanged only once.</p>
+            <div style="text-align: center; width: 100%;">
+                <img src="/media/oauth/obtain_acces_token.png">
+            </div>
+        </div>
+    </div>
 </div>
 <div class="retrieveauthcode" data-action="retrieveAuthorizationCode">
     <div class="frame-parent">
@@ -35,7 +47,7 @@
                     <div class="inputfieldwrapperbox2">
                         <input class="inputfieldandtext" type="text" tabindex="218" name="id"/>
                     </div>
-                    <label class="inputlabel2">Request Authorization Code</label>
+                    <label class="inputlabel2">Request Authorization Code Id</label>
                 </div>
             </form>
             <button class="requestbutton" data-call-to-action tabindex="220">
@@ -47,6 +59,17 @@
             <button class="copybutton4" tabindex="118">
                 <div class="copylabel4" data-copy=".inputfieldandtext36">Copy</div>
             </button>
+        </div>
+    </div>
+    <div class="infoModalOpenButton">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Retrieve Authorization Code</h2>
+            <p>After requesting authorization code user should use the response id and nonce to retrieve the authorization code. If error occurs appropriate error message should be raised.</p>
+            <p>Retrieve Authorization Code request returns authorization code for the provided parameters. On success system returns the authorization code. This call can only be called once.</p>
+            <div style="text-align: center; width: 100%;">
+                <img src="/media/oauth/retrieve_auth_code.png">
+            </div>
         </div>
     </div>
 </div>
@@ -86,7 +109,19 @@
         <div class="inputfieldwrapperbox4" tabindex="217">
             <input class="inputfieldandtext33" type="text" readonly data-dpt-cab-id/>
             <div class="copybutton3">
-                <div class="copylabel2" data-copy=".inputfieldandtext33">Copy</div>
+                <div class="copylabel4" data-copy=".inputfieldandtext33">Copy</div>
+            </div>
+        </div>
+    </div>
+    <div class="infoModalOpenButton">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Request Authorization Code</h2>
+            <p>User attempts to request authorization code by providing nonce, client_id and requested scope. If successful, system raises the event AuthorizationCodeRequested. If error occurs appropriate message is raised.</p>
+            <p>Request Authorization Code command accepts the nonce, client_id and scope.</p>
+            <p>Handler processes the information and on success rises an event AuthorizationCodeRequested.</p>
+            <div style="text-align: center; width: 100%;">
+                <img src="/media/oauth/request_auth_code.png">
             </div>
         </div>
     </div>
@@ -112,13 +147,20 @@
         <div class="inputfieldwrapperbox4">
             <input class="inputfieldandtext32" name="basic_auth" type="text" readonly data-dpt-cab-id tabindex="212"/>
             <div class="copybutton3">
-                <div class="copylabel2" data-copy=".inputfieldandtext32">Copy</div>
+                <div class="copylabel4" data-copy=".inputfieldandtext32">Copy</div>
             </div>
         </div>
     </div>
     <button class="requestbutton pack-button" tabindex="211">
         <div class="buttontext">Pack Basic Authorization</div>
     </button>
+    <div class="infoModalOpenButton">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Pack Basic Authorization</h2>
+            <p>This tools is a frontend helper tool. It packs the client id and client secret in a string, which is used as OAuth application authorization token.</p>
+        </div>
+    </div>
 </div>
 <div class="retrievecredentials" data-action="retrieveOAuthCredentials">
     <div class="inputfieldwrapperbox43 hide">
@@ -135,12 +177,23 @@
     <button class="requestbutton" data-call-to-action tabindex="207">
         <div class="buttontext">Retrieve Credentials</div>
     </button>
+    <div class="infoModalOpenButton">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Retrieve Credentials</h2>
+            <p>After applying for new oauth application,  user is able to retrieve the configuration. This configuration is retrievable only once.</p>
+            <p>On successful retrieval an OAuthConfigurationRetrieved event is raised. In case of an error an OAuthConfigurationUnobtainable event is raised.</p>
+            <div style="text-align: center; width: 100%;">
+                <img src="/media/oauth/retrieve_credentials.png">
+            </div>
+        </div>
+    </div>
 </div>
 <div class="registeroauthapp" data-action="registerOAuthApplication">
     <div class="inputfieldwrapperbox45">
         <input class="inputfieldandtext41" type="text" readonly data-dpt-cab-id tabindex="204"/>
         <div class="copybutton3" tabindex="205">
-            <div class="copylabel2" data-copy=".inputfieldandtext41">Copy</div>
+            <div class="copylabel4" data-copy=".inputfieldandtext41">Copy</div>
         </div>
     </div>
     <form class="form20" action="/profile/oauth-application-register" method="post" data-auth-header="xauth">
@@ -160,6 +213,18 @@
     <button class="requestbutton" data-call-to-action tabindex="203">
         <div class="buttontext">Register OAuth Application</div>
     </button>
+    <div class="infoModalOpenButton">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Register OAuth Application</h2>
+            <p>User attempts to register new OAuth application by providing title and optional uri (used for the web purposes, redirection).</p>
+            <p>If successful system dispatches AppliedForOAuthApplication event. In a case an error is occurred, OAuthRegistrationDenied is raised.</p>
+            <p>Handler processes the information and on success issue AppliedForOAuthApplication event. In a case of an error, appropriate exception OAuthRegistrationDenied raised.</p>
+            <div style="text-align: center; width: 100%;">
+                <img src="/media/oauth/register_oauth_app.png">
+            </div>
+        </div>
+    </div>
 </div>
 <div class="listAuthApplications" data-action="listAuthApplications">
     <form class="form4" action="/profile/retrieve-oauth-application-list" method="get" data-auth-header="xauth">
@@ -170,8 +235,18 @@
             List OAuth Applications
         </div>
     </button>
+    <div class="infoModalOpenButton listAction">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>List OAuth Applications</h2>
+            <p>List is used by a user which wants to see a list of all the oauth applications that are registered under its profile.</p>
+            <p>List profiles OAuth applications request returns a list of all OAuth applications that are registered under the current profile.</p>
+            <div style="text-align: center; width: 100%;">
+                <img src="/media/oauth/list_oauth_apps.png">
+            </div>
+        </div>
+    </div>
 </div>
-<div class="horizontalline21"></div>
 <div class="horizontalline15"></div>
 <div class="horizontalline16"></div>
 <div class="horizontalline17"></div>
@@ -179,3 +254,12 @@
 <div class="horizontalline19"></div>
 <div class="horizontalline20"></div>
 <b class="sectionheadertitle6">OAuth Application Authorization</b>
+<div class="infoModalOpenButton mainSection2">
+    <i class="bi bi-book"></i>
+    <div data-description class="hide">
+        <h2>OAuth Application Authorization</h2>
+        <p>OAuth application represent central place for storing temporary credentials for inter system communication by the outside parties.</p>
+        <p>Outside parties can be end browser client software (javascript), mobile device (data protection tool authenticator) etc.</p>
+        <p>OAuth application relies on the industry standard protocol for authorization OAuth 2.0 and it's features as: Access Token, Refresh Token and OAuth Scopes.</p>
+    </div>
+</div>

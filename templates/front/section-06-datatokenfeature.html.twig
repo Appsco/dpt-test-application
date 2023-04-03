@@ -2,6 +2,13 @@
     <button class="requestbutton" data-mq-call-to-action tabindex="610">
         <div class="buttontext">Exchange Data For Token</div>
     </button>
+    <div class="infoModalOpenButton">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Exchange Data For Token</h2>
+            <p>Command receives reserved token space and data, by the MQ Rabbit transport. Handler processes the data, and the data is encrypted by the system.</p>
+        </div>
+    </div>
     <div class="frame-parent">
         <div class="form-wrapper">
             <form class="form" data-queue="/queue/datatokenexchange" data-auth-header="xauth">
@@ -28,6 +35,16 @@
     <button class="requestbutton" data-call-to-action tabindex="607">
         <div class="buttontext" >Exchange Data For Token over Http</div>
     </button>
+    <div class="infoModalOpenButton">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Exchange Data For Token over Http</h2>
+            <p>Command receives reserved token space and data. Handler processes the data, and the data is encrypted by the system.</p>
+            <div style="text-align: center; width: 100%;">
+                <img src="media/data_token/exchange_data_for_token_http.png">
+            </div>
+        </div>
+    </div>
     <div class="frame-parent">
         <div class="form-wrapper">
             <form class="form" action="/data-token/exchange-data-for-token" method="post" data-auth-header="xauth">
@@ -54,6 +71,16 @@
     <div class="requestbutton2" data-call-to-action tabindex="604" style="cursor: pointer;">
         <div class="buttontext2">Retrieve Temporary Data Token</div>
     </div>
+    <div class="infoModalOpenButton">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Retrieve Temporary Data Token</h2>
+            <p>Retrieves the temporary data token from the CAB, which is created in the first step of the data tokenization process. The action of reserving a token space returns the command_id, which is the query for this endpoint.</p>
+            <div style="text-align: center; width: 100%;">
+                <img src="media/data_token/retrieve_temp_data_token.png">
+            </div>
+        </div>
+    </div>
     <div class="frame-parent">
         <div class="form-wrapper">
             <form class="form" action="/data-token/retrieve-temporary-data-token/" method="get" data-auth-header="xauth">
@@ -75,8 +102,18 @@
 </div>
 <div class="reservetokenspace" data-action="reserveTokenSpace">
     <button class="requestbutton" data-call-to-action tabindex="602">
-        <div class="buttontext" >Reserve Token Space</div>
+        <div class="buttontext">Reserve Token Space</div>
     </button>
+    <div class="infoModalOpenButton">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Reserve Token Space</h2>
+            <p>Profile reserves a token space by providing context. In case process fails exception is raised informing the user that reserving process failed.</p>
+            <div style="text-align: center; width: 100%;">
+                <img src="media/data_token/reserve_token_space.png">
+            </div>
+        </div>
+    </div>
     <div class="frame-parent">
         <div class="form-wrapper">
             <form class="form3" action="/data-token/reserve-token-space" method="post" data-auth-header="xauth">
@@ -104,6 +141,16 @@
             List Data Tokens
         </div>
     </button>
+    <div class="infoModalOpenButton listAction">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>List Data Tokens</h2>
+            <p>List of all the profile tokens from the CAB. This does not necessarily mean that tokens are stored on all devices.</p>
+            <div style="text-align: center; width: 100%;">
+                <img src="media/data_token/list_data_tokens.png">
+            </div>
+        </div>
+    </div>
 </div>
 <div class="horizontalline1"></div>
 <div class="horizontalline2"></div>
@@ -111,3 +158,10 @@
 <div class="horizontalline29"></div>
 <div class="horizontalline"></div>
 <b class="sectionheadertitle1">Data Token Feature</b>
+<div class="infoModalOpenButton mainSection7">
+    <i class="bi bi-book"></i>
+    <div data-description class="hide">
+        <h2>Data Token Feature</h2>
+        <p>Data tokens represent list of tokens that are pointers to the data in the profile device. Profile issues a request to DPT-CAB for data token.</p>
+     </div>
+</div>

@@ -11,6 +11,13 @@
     <button data-call-to-action class="requestbutton" tabindex="408">
         <div class="buttontext">Verify Authenticator</div>
     </button>
+    <div class="infoModalOpenButton">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Verify Authenticator</h2>
+            <p>Verified authenticator can be registered-declared, for the provided device unique identifier.</p>
+        </div>
+    </div>
 </div>
 <div class="retrieveprofiledevices1" data-action="retrieveProfileDevices">
     <form class="form4" action="/device/retrieve-profile-devices" method="post" data-auth-header="xauth">
@@ -21,6 +28,19 @@
             Retrieve Profile Devices
         </div>
     </button>
+    <div class="infoModalOpenButton listAction">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Retrieve Profile Devices</h2>
+            <p>User attempts to retrieve list of profile devices. If successful, a list of devices is returned. Otherwise, in a case of an error, an appropriate message should be raised.</p>
+            <p>Profile device list returns a name of the device and a security score. Retrieve profile devices list request returns a list of user devices. In case of an error appropriate error message should be raised.</p>
+            <p>Profile devices list also enables device configuration download.</p>
+            <div style="text-align: center; width: 100%;">
+                <img src="/media/device/retrieve_profile_devices.png">
+                <img src="/media/device/download_configuration.png">
+            </div>
+        </div>
+    </div>
 </div>
 <div class="requestuniqueidentifier" data-action="requestUniqueIdentifier">
     <div class="inputfieldwrapperbox25">
@@ -37,6 +57,18 @@
     <button data-call-to-action class="requestbutton" tabindex="404">
         <div class="buttontext">Request Unique Identifier</div>
     </button>
+    <div class="infoModalOpenButton">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Request Unique Identifier</h2>
+            <p>User requests unique identifier for a new device with optional unique identifier parameter.</p>
+            <p>Handler processes the request and rises the RequestedUniqueIdentifier event. If unsuccessfully, it returns appropriate error message.</p>
+            <p>Requesting a new identifier may raise voting. Voting in this case, requires a quorum to be reached.</p>
+            <div style="text-align: center; width: 100%;">
+                <img src="/media/device/request_unique_indetifier.png">
+            </div>
+        </div>
+    </div>
 </div>
 <div class="retrieveuniqueidentifier" data-action="retrieveUniqueIdentifier">
     <form class="form12" action="/device/request-unique-identifier" method="post" data-auth-header="xauth">
@@ -50,9 +82,29 @@
     <button data-call-to-action class="requestbutton10" tabindex="402">
         <div class="buttontext">Retrieve Unique Identifier</div>
     </button>
+    <div class="infoModalOpenButton listAction retrieveUniqueIdentifierTutorial">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Retrieve Unique Identifier</h2>
+            <p>Retrieve unique identifier request should return the identifier which is used in the next step, requesting the device unique identifier.</p>
+            <p>On success, ApplicationForNewDeviceAccepted is raised. In a case of an error, an appropriate error message is raised.</p>
+            <div style="text-align: center; width: 100%;">
+                <img src="/media/device/retrieve_uniqie_identifier.png">
+            </div>
+        </div>
+    </div>
 </div>
 <div class="horizontalline12"></div>
 <div class="horizontalline10"></div>
 <div class="horizontalline11"></div>
 <div class="horizontalline"></div>
 <b class="sectionheadertitle4">Device Feature</b>
+<div class="infoModalOpenButton mainSection4">
+    <i class="bi bi-book"></i>
+    <div data-description class="hide">
+        <h2>Device Feature</h2>
+        <p>The device can be any machine that has Data Protection Tool Authenticator installed. Each device is connected to the Profile. Devices are distinguished by name and type (mobile, desktop, server, watch, etc.). Name is used to better recognize the device in question while the type is used in order to determine to which software the communication is established.</p>
+        <p>Before registering a device unique token should be generated. This token is to be used as an access point for obtaining OAuth credentials which later can be used to communicate with the system.</p>
+        <p>Profile requests a unique identifier for a device. Once the unique identifier is confirmed, the profile will create an OAuth application. The profile should obtain the access token and save it on the device. To distinguish device applications, the OAuth application name should be linked with the device name or unique id.</p>
+    </div>
+</div>

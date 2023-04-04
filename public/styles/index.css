@@ -211,6 +211,7 @@ html {
   position: relative;
   line-height: 18px;
   font-weight: 500;
+  font-size: var(--body-1-medium-size);
 }
 
 .requestbutton2 {

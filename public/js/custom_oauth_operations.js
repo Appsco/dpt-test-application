@@ -21,6 +21,11 @@ window.addEventListener('DOMContentLoaded', () => {
         displayTableData(resp);
     })
 
+    document.querySelector('[data-action="retrieveOauthApplicationScope"]')?.addEventListener('request.response.body', (e) => {
+        let resp = e.detail;
+        displayTableData(resp);
+    })
+
     rememberAuthToken();
     registerPackButton();
 });

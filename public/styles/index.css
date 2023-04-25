@@ -279,7 +279,8 @@ html {
 .form4,
 .requestbuttoninside,
 .retrieveprofiledevices,
-.listAuthApplications{
+.listAuthApplications,
+.retrieveOauthApplicationScope{
   position: absolute;
   top: 0;
   left: 0;
@@ -295,6 +296,12 @@ html {
 
 .listAuthApplications{
   top: 1200px;
+  left: 0;
+  width: 1200px;
+}
+
+.retrieveOauthApplicationScope{
+  top: 1255px;
   left: 0;
   width: 1200px;
 }
@@ -668,6 +675,7 @@ html {
 .inputfieldwrapperbox24 {
   border-radius: var(--br-lg);
   background-color: var(--dark-blue-900);
+  margin-top: 5px;
   width: 386px;
   height: 40px;
   flex-shrink: 0;
@@ -773,6 +781,22 @@ html {
 .verifyAuthenticator{
   position: absolute;
   top: 440px;
+  left: 0;
+  width: 1200px;
+  height: 123px;
+}
+
+.registerStorage{
+  position: absolute;
+  top: 640px;
+  left: 0;
+  width: 1200px;
+  height: 123px;
+}
+
+.listStorageDevices{
+  position: absolute;
+  top: 840px;
   left: 0;
   width: 1200px;
   height: 123px;
@@ -1270,7 +1294,9 @@ html {
 .horizontalline18,
 .horizontalline19,
 .horizontalline20,
-.horizontalline12 {
+.horizontalline12,
+.horizontalline55,
+.horizontalline14{
   position: absolute;
   top: 1025.5px;
   left: -0.5px;
@@ -1313,6 +1339,14 @@ html {
 
 .horizontalline12{
   top: 412.5px;
+}
+
+.horizontalline14{
+  top: 610px;
+}
+
+.horizontalline55{
+  top: 800px;
 }
 
 .oauthsection,

@@ -280,7 +280,8 @@ html {
 .requestbuttoninside,
 .retrieveprofiledevices,
 .listAuthApplications,
-.retrieveOauthApplicationScope{
+.retrieveOauthApplicationScope,
+.retrieveProfileScope{
   position: absolute;
   top: 0;
   left: 0;
@@ -295,13 +296,19 @@ html {
 }
 
 .listAuthApplications{
-  top: 1200px;
+  top: 1425px;
   left: 0;
   width: 1200px;
 }
 
 .retrieveOauthApplicationScope{
-  top: 1255px;
+  top: 1360px;
+  left: 0;
+  width: 1200px;
+}
+
+.retrieveProfileScope{
+  top: 1500px;
   left: 0;
   width: 1200px;
 }
@@ -547,7 +554,7 @@ html {
   width: 343px;
   height: 40px;
   flex-shrink: 0;
-  display: flex;
+  display: table;
   flex-direction: row;
   padding: var(--padding-md) var(--padding-lg);
   box-sizing: border-box;
@@ -1009,7 +1016,7 @@ html {
 
 .obtainaccesstoken {
   position: absolute;
-  top: 1050px;
+  top: 1130px;
   left: 0;
   width: 1200px;
   height: 124px;
@@ -1038,7 +1045,7 @@ html {
 
 .retrieveauthcode {
   position: absolute;
-  top: 878px;
+  top: 960px;
   left: 0;
   width: 1200px;
   height: 124px;
@@ -1093,8 +1100,22 @@ html {
 .form17 {
   position: relative;
   width: 794px;
-  height: 148px;
+  height: 230px;
   flex-shrink: 0;
+}
+
+.form17 .form-parent, .form17 .inputdivbox2{
+  top: 155px;
+}
+
+.form17 .inputfieldwrapper-wrapper{
+  top: 25px;
+}
+
+.form17 .infobutton{
+  position: absolute;
+  top: 0;
+  left: 360px;
 }
 
 .requestauthcode {
@@ -1108,7 +1129,7 @@ html {
 .inputfieldwrapperbox43,
 .packbasicauth {
   position: absolute;
-  top: 442px;
+  top: 430px;
   left: 0;
   width: 1200px;
   height: 124px;
@@ -1126,6 +1147,10 @@ html {
   box-sizing: border-box;
   align-items: center;
   justify-content: flex-start;
+}
+
+.requestauthtoken .inputfieldwrapperbox43{
+  top: 165px;
 }
 
 .retrievecredentials {
@@ -1196,7 +1221,7 @@ html {
 }
 
 .mainSection{
-  top: 8px;
+  top: 15px;
   left: 170px;
   right: auto;
   color: white;
@@ -1296,7 +1321,10 @@ html {
 .horizontalline20,
 .horizontalline12,
 .horizontalline55,
-.horizontalline14{
+.horizontalline14,
+.horizontalline21b,
+.horizontalline22b,
+.horizontalline23b{
   position: absolute;
   top: 1025.5px;
   left: -0.5px;
@@ -1347,6 +1375,18 @@ html {
 
 .horizontalline55{
   top: 800px;
+}
+
+.horizontalline21b{
+  top: 935px;
+}
+
+.horizontalline22b{
+  top: 1110px;
+}
+
+.horizontalline23b{
+  top: 1270px;
 }
 
 .oauthsection,
@@ -1427,7 +1467,7 @@ html {
 
 .retriveauthtoken {
   position: absolute;
-  top: 783px;
+  top: 883px;
   left: 6px;
   width: 1200px;
   height: 126px;
@@ -1435,34 +1475,38 @@ html {
 
 .reauthorizeauthtoken {
   position: absolute;
-  top: 983px;
+  top: 1083px;
   left: 6px;
   width: 1200px;
-  height: 126px;
 }
 
 .revokeAuthToken {
   position: absolute;
-  top: 1200px;
-  left: 6px;
+  top: 1300px;
   width: 1200px;
-  height: 126px;
+}
+
+.refreshAccessToken {
+  position: absolute;
+  top: 1280px;
+  width: 1200px;
 }
 
 .inputfieldandtext47 {
   border: 0;
   font-family: var(--title-1-bold);
   font-size: var(--body-1-medium-size);
-  background-color: transparent;
+  background-color: var(--dark-blue-900);
   position: relative;
   color: var(--l00);
   text-align: left;
   display: inline-block;
   width: 311px;
   flex-shrink: 0;
+  outline: none;
 }
 
-.inputfieldwrapperbox-wrapper {
+.inputfieldwrapper-wrapper {
   position: absolute;
   top: 0;
   left: 0;
@@ -1477,6 +1521,13 @@ html {
   width: 343px;
   height: 40px;
   flex-shrink: 0;
+}
+
+select[multiple]{
+  height: 100px;
+}
+select:focus-visible{
+  outline: none;
 }
 
 .form22,
@@ -1526,7 +1577,6 @@ html {
   top: 609px;
   left: 6px;
   width: 1200px;
-  height: 124px;
 }
 
 .inputfieldandtext49 {
@@ -1641,7 +1691,7 @@ html {
 
 .sectionheadertitle7 {
   position: absolute;
-  top: 6px;
+  top: 15px;
   left: 6px;
   font-size: var(--large-title-bold-size);
 }
@@ -1653,7 +1703,10 @@ html {
 .horizontalline25,
 .horizontalline26,
 .horizontalline27,
-.horizontalline28 {
+.horizontalline28,
+.horizontalline21a,
+.horizontalline26a,
+.horizontalline27a{
   position: absolute;
   top: 762.5px;
   left: -0.5px;
@@ -1661,6 +1714,16 @@ html {
   box-sizing: border-box;
   width: 1201px;
   height: 1px;
+}
+
+.horizontalline21a{
+  top: 850px;
+}
+.horizontalline26a{
+  top: 1050px;
+}
+.horizontalline27a{
+  top: 1270px;
 }
 
 .horizontalline22,
@@ -2247,7 +2310,7 @@ html {
   position: relative;
   background-color: var(--dark-blue-900);
   width: 100%;
-  height: 1850px;
+  height: 1950px;
   overflow: hidden;
   text-align: left;
   color: var(--m80);

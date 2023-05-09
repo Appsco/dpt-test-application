@@ -18,6 +18,11 @@ window.addEventListener('DOMContentLoaded', () => {
         displayTableData(resp);
     })
 
+    document.querySelector('[data-action="retrieveProfileScope"]')?.addEventListener('request.response.body', (e) => {
+        let resp = e.detail;
+        displayTableData(resp);
+    })
+
     rememberXAuthToken();
 });
 

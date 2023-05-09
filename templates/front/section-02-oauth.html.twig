@@ -1,3 +1,30 @@
+<div class="refreshAccessToken" data-action="refreshAccessToken">
+    <div class="inputfieldwrapperbox48">
+        <input class="inputfieldandtext44" type="text" readonly data-dpt-cab-id tabindex="121"/>
+    </div>
+    <form class="form-parent" action="/oauth-application/refresh-access-token" method="post" data-auth-header="basic">
+        <div class="form-parent">
+            <div class="inputfieldwrapperbox2">
+                <input class="inputfieldandtext23" name="refresh_token" type="text" tabindex="119"/>
+            </div>
+            <label class="inputlabel2">Refresh Token</label>
+        </div>
+    </form>
+    <button class="requestbutton19" data-call-to-action tabindex="120">
+        <div class="buttontext">Refresh Access Token</div>
+    </button>
+    <div class="infoModalOpenButton">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Reauthorize Auth Token</h2>
+            <p>User attempts to reauthorize the token, in order to extend a token's validity time.</p>
+            <p>This issues an event that reauthorization is attempted. In case of error occur appropriate exception is raised.</p>
+            <div style="text-align: center; width: 100%;">
+                <img src="/media/profile/reauthorize_auth_token.png">
+            </div>
+        </div>
+    </div>
+</div>
 <div class="obtainaccesstoken" data-action="obtainAccessToken">
     <div class="frame-parent">
         <div class="form-wrapper">
@@ -77,15 +104,28 @@
     <div class="frame-parent">
         <div class="form-wrapper">
             <form class="form17" action="/profile/oauth-application-request-authorization-code" method="post" data-auth-header="xauth">
-                <div class="inputdivbox24">
-                    <div class="inputfieldwrapperbox-parent">
+                <div class="inputdivbox-inner">
+                    <div class="inputfieldwrapper-wrapper">
                         <div class="inputfieldwrapperbox18">
-                            <input class="inputfieldandtext16" type="text" name="scope" value="all" tabindex="216"/>
+                            <select class="inputfieldandtext16" name="scope[]" tabindex="216" multiple="">
+                                <optgroup label="By Feature">
+                                    <option value="all" selected>all</option>
+                                    <option value="oauth.all">oauth.all</option>
+                                    <option value="voting.all">voting.all</option>
+                                </optgroup>
+                                <optgroup label="OAuthApplication">
+                                    <option value="oauth.refresh_access_token">oauth.refresh_access_token</option>
+                                    <option value="oauth.retrieve_oauth_application_scope">oauth.retrieve_oauth_application_scope</option>
+                                </optgroup>
+                                <optgroup label="Voting">
+                                    <option value="voting.create_pool">voting.create_pool</option>
+                                </optgroup>
+                            </select>
                         </div>
-                        <button class="infobutton">
+                        <span class="infobutton">
                             <img class="infobutton-child" alt="" src="/assets/ellipse-6.svg"/>
                             <img class="infobutton-item" alt="" src="/assets/group-334593.svg"/>
-                        </button>
+                        </span>
                     </div>
                     <label class="inputlabel2">Scope</label>
                 </div>
@@ -264,8 +304,9 @@
         </div>
     </div>
 </div>
-<div class="horizontalline15"></div>
-<div class="horizontalline16"></div>
+<div class="horizontalline23b"></div>
+<div class="horizontalline22b"></div>
+<div class="horizontalline21b"></div>
 <div class="horizontalline17"></div>
 <div class="horizontalline18"></div>
 <div class="horizontalline19"></div>

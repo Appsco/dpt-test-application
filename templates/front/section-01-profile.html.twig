@@ -1,3 +1,20 @@
+<div class="retrieveProfileScope" data-action="retrieveProfileScope">
+    <form class="form4" action="/profile/retrieve-scope" method="get" data-auth-header="xauth">
+    </form>
+    <input type="hidden" readonly data-dpt-cab-id/>
+    <button class="requestbuttoninside">
+        <div class="retrieve-profile-devices" tabindex="225" data-call-to-action>
+            Retrieve Profile Scope
+        </div>
+    </button>
+    <div class="infoModalOpenButton listAction">
+        <i class="bi bi-book"></i>
+        <div data-description class="hide">
+            <h2>Retrieve Profile Scope</h2>
+            <p>A profile has a scope that controls resource access.</p>
+        </div>
+    </div>
+</div>
 <div class="revokeAuthToken" data-action="revokeAuthToken">
     <form class="form-parent" action="/profile/revoke-authorization-token" method="post" data-auth-header="xauth">
         <div class="inputfieldwrapperbox49">
@@ -5,12 +22,12 @@
         </div>
     </form>
     <button class="requestbutton19" data-call-to-action tabindex="123">
-        <div class="buttontext">Revoke Auth Token</div>
+        <div class="buttontext">Revoke Authorization Token</div>
     </button>
     <div class="infoModalOpenButton">
         <i class="bi bi-book"></i>
         <div data-description class="hide">
-            <h2>Revoke Auth Token</h2>
+            <h2>Revoke Authorization Token</h2>
             <p>User attempts to revoke the authorization token.</p>
             <p>Upon successful operation event fires AuthorizationTokenRevoked.</p>
             <p>No voting is occurred for this action.</p>
@@ -86,12 +103,63 @@
     </div>
     <div class="form-parent">
         <form class="form22" action="/profile/request-authorization-token" method="post" data-auth-header="xauth">
-            <div class="inputfieldwrapperbox23">
+            <div class="">
                 <label class="inputlabel9">Scope</label>
                 <div class="inputdivbox-inner">
-                    <div class="inputfieldwrapperbox-wrapper">
+                    <div class="inputfieldwrapper-wrapper">
                         <div class="inputfieldwrapperbox18">
-                            <input class="inputfieldandtext47" type="text" name="scope" value="all" tabindex="112"/>
+                            <select class="inputfieldandtext47" name="scope[]" tabindex="112" multiple>
+                                <optgroup label="By Feature">
+                                    <option value="all" selected>all</option>
+                                    <option value="data_token.all">data_token.all</option>
+                                    <option value="device.all">device.all</option>
+                                    <option value="oauth.all">oauth.all</option>
+                                    <option value="profile.all">profile.all</option>
+                                    <option value="public_key.all">public_key.all</option>
+                                    <option value="storage.all">storage.all</option>
+                                    <option value="verified_authenticator.all">verified_authenticator.all</option>
+                                    <option value="voting.all">voting.all</option>
+                                </optgroup>
+                                <optgroup label="Data Token">
+                                    <option value="data_token.exchange_data_for_token">data_token.exchange_data_for_token</option>
+                                    <option value="data_token.list_data_tokens">data_token.list_data_tokens</option>
+                                    <option value="data_token.request_data">data_token.request_data</option>
+                                    <option value="data_token.reserve_token_space">data_token.reserve_token_space</option>
+                                    <option value="data_token.retrieve_data_token">data_token.retrieve_data_token</option>
+                                    <option value="data_token.retrieve_temporary_data_token">data_token.retrieve_temporary_data_token</option>
+                                </optgroup>
+                                <optgroup label="Device">
+                                    <option value="device.download_device_configuration">device.download_device_configuration</option>
+                                    <option value="device.request_unique_identifier">device.request_unique_identifier</option>
+                                    <option value="device.retrieve_profile_devices">device.retrieve_profile_devices</option>
+                                    <option value="device.retrieve_unique_identifier">device.retrieve_unique_identifier</option>
+                                </optgroup>
+                                <optgroup label="Profile">
+                                    <option value="profile.reauthorize_authorisation_token">profile.reauthorize_authorisation_token</option>
+                                    <option value="profile.register_oauth_application">profile.register_oauth_application</option>
+                                    <option value="profile.request_authorization_code">profile.request_authorization_code</option>
+                                    <option value="profile.retrieve_oauth_configuration">profile.retrieve_oauth_configuration</option>
+                                    <option value="profile.retrieve_profile_id">profile.retrieve_profile_id</option>
+                                    <option value="profile.retrieve_profile_oauth_application_list">profile.retrieve_profile_oauth_application_list</option>
+                                </optgroup>
+                                <optgroup label="PublicKey">
+                                    <option value="public_key.register_public_key">public_key.register_public_key</option>
+                                    <option value="public_key.retrieve_public_key">public_key.retrieve_public_key</option>
+                                </optgroup>
+                                <optgroup label="Storage">
+                                    <option value="storage.list_storage_devices">storage.list_storage_devices</option>
+                                    <option value="storage.register">storage.register</option>
+                                </optgroup>
+                                <optgroup label="VerifiedAuthenticator">
+                                    <option value="verified_authenticator.list_verified_authenticators">verified_authenticator.list_verified_authenticators</option>
+                                    <option value="verified_authenticator.register_authenticator">verified_authenticator.register_authenticator</option>
+                                    <option value="verified_authenticator.retrieve_strategy">verified_authenticator.retrieve_strategy</option>
+                                    <option value="verified_authenticator.set_maximum_voting_attempts">verified_authenticator.set_maximum_voting_attempts</option>
+                                    <option value="verified_authenticator.set_quorum_size">verified_authenticator.set_quorum_size</option>
+                                    <option value="verified_authenticator.set_quorum_strategy">verified_authenticator.set_quorum_strategy</option>
+                                    <option value="verified_authenticator.set_voting_time_limit">verified_authenticator.set_voting_time_limit</option>
+                                </optgroup>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -235,10 +303,10 @@
         <p>Profile is the basic model for the DPT-CAB and all other features are relying on the profile.</p>
     </div>
 </div>
-<div class="horizontalline21"></div>
+<div class="horizontalline21a"></div>
 <div class="horizontalline22"></div>
 <div class="horizontalline23"></div>
 <div class="horizontalline24"></div>
 <div class="horizontalline25"></div>
-<div class="horizontalline26"></div>
-<div class="horizontalline27"></div>
+<div class="horizontalline26a"></div>
+<div class="horizontalline27a"></div>

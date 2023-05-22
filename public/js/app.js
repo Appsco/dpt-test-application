@@ -59,6 +59,11 @@ function appConfigured(DPTURL) {
             options.headers = setOptionsHeader(authHeader);
             if (method.toLowerCase() === 'post') {
                 options.body = formData;
+            } else {
+                let queryString = (new URLSearchParams([...formData])).toString();
+                if (queryString) {
+                    executeFormActionUrl += '?' + queryString;
+                }
             }
             responseContainer.innerHTML = '\n\r\n\r\t\t#########################################\n\r' + responseContainer.innerHTML;
             responseContainer.innerHTML = '\n\r' + JSON.stringify({url: executeFormActionUrl}, null, 2) + responseContainer.innerHTML;

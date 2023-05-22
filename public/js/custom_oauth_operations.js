@@ -26,6 +26,12 @@ window.addEventListener('DOMContentLoaded', () => {
         displayTableData(resp);
     })
 
+    document.querySelector('[data-action="refreshAccessToken"]').addEventListener('request.response.body', (e) => {
+        let resp = e.detail;
+        document.querySelector('[data-action="refreshAccessToken"]').querySelector('[data-dpt-cab-id]').value = resp.token;
+        displayTableData(resp);
+    })
+
     rememberAuthToken();
     registerPackButton();
 });

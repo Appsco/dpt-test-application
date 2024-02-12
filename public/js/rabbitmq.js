@@ -32,10 +32,10 @@ function configureMQ(DPTMQURL) {
     };
     let on_error = function () {
     };
-    client.connect('guest', 'guest', on_connect, on_error, '/');
+    client.connect('dptcab', 'dptcab', on_connect, on_error, '/');
     window.addEventListener('rabbit.setup-listener', (e) => {
         let profile = e.detail.profile;
-        client.subscribe(`/queue/data_response.${profile}`, (frame) => {
+        client.subscribe(`/queue/message_to_user.${profile}`, (frame) => {
             let responseContainer = document.querySelector('[data-response-log]');
             responseContainer.innerHTML = '\n\r\n\r\t\t#########################################\n\r' + responseContainer.innerHTML;
             responseContainer.innerHTML = '\n\r' + JSON.stringify({body: frame.body, headers: frame.headers}, null, 2) + responseContainer.innerHTML;

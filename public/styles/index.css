@@ -160,6 +160,13 @@ html {
   width: 1200px;
   height: 124px;
 }
+.getPoolStatus {
+  position: absolute;
+  top: 230px;
+  left: 0;
+  width: 1200px;
+  height: 124px;
+}
 
 .horizontalline {
   top: -0.5px;
